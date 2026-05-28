@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Richardson Ferreira | Eng Em Formação </title>
+    <title>Richardson Ferreira | Engenharia de Software</title>
+    <meta name="description" content="Portfólio de Richardson Ferreira: transição de carreira de infraestrutura e redes FTTH para Engenharia de Software, com foco em Python, JavaScript e C#.">
+    <meta property="og:title" content="Richardson Ferreira | Engenharia de Software">
+    <meta property="og:description" content="Profissional em transição de carreira unindo experiência de infraestrutura e redes com desenvolvimento de software.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://richaferreira.github.io/">
+    <meta property="og:image" content="https://github.com/richaferreira.png">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -20,10 +27,11 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            background: #0a0a0a;
             color: #e2e8f0;
             line-height: 1.6;
             min-height: 100vh;
+            position: relative;
         }
 
         :root {
@@ -31,11 +39,22 @@
             --secondary: #06b6d4;
             --accent: #f59e0b;
             --success: #10b981;
-            --dark-bg: #0f172a;
-            --card-bg: #1e293b;
-            --border-color: #334155;
+            --dark-bg: #0a0a0a;
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --border-color: rgba(255, 255, 255, 0.12);
             --text-primary: #e2e8f0;
-            --text-secondary: #cbd5e1;
+            --text-secondary: #b5bdd0;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+            background:
+                radial-gradient(55rem 32rem at 15% 8%, rgba(59, 130, 246, 0.14), transparent 62%),
+                radial-gradient(48rem 28rem at 82% 20%, rgba(6, 182, 212, 0.1), transparent 62%);
         }
 
         /* Animações */
@@ -167,11 +186,13 @@
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 800;
             margin-bottom: 1rem;
-            line-height: 1.2;
+            line-height: 1.12;
             color: var(--text-primary);
+            letter-spacing: -1.5px;
+            text-wrap: balance;
         }
 
         .hero-content h1 .highlight {
@@ -186,6 +207,13 @@
             color: var(--text-secondary);
             margin-bottom: 2rem;
             line-height: 1.8;
+            max-width: 62ch;
+        }
+
+        .hero-content p.hero-subtitle {
+            font-size: 1.25rem;
+            color: #dbe4ff;
+            margin-bottom: 1.2rem;
         }
 
         .hero-cta {
@@ -207,9 +235,9 @@
         }
 
         .btn-primary {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            border-color: var(--primary);
+            border-color: rgba(59, 130, 246, 0.45);
         }
 
         .btn-primary:hover {
@@ -236,11 +264,12 @@
         }
 
         .stat {
-            background: rgba(30, 41, 59, 0.5);
+            background: rgba(255, 255, 255, 0.04);
             border: 1px solid var(--border-color);
             padding: 1.5rem;
-            border-radius: 0.5rem;
+            border-radius: 0.8rem;
             transition: all 0.3s;
+            backdrop-filter: blur(8px);
         }
 
         .stat:hover {
@@ -271,15 +300,16 @@
         }
 
         .profile-card {
-            background: rgba(30, 41, 59, 0.8);
-            border: 2px solid var(--border-color);
-            border-radius: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 1.3rem;
             padding: 2rem;
             text-align: center;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(14px);
             transition: all 0.3s;
             width: 100%;
             max-width: 350px;
+            box-shadow: 0 16px 55px rgba(0, 0, 0, 0.45), 0 0 35px rgba(59, 130, 246, 0.18);
         }
 
         .profile-card:hover {
@@ -289,19 +319,31 @@
         }
 
         .profile-image {
-            width: 200px;
-            height: 200px;
+            width: 220px;
+            height: 240px;
             margin: 0 auto 1.5rem;
-            border-radius: 50%;
-            border: 4px solid var(--primary);
+            border-radius: 1.35rem;
+            border: 1px solid rgba(148, 163, 184, 0.55);
             overflow: hidden;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: #020617;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 5rem;
             font-weight: 800;
             color: rgba(255, 255, 255, 0.3);
+            position: relative;
+            box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.25), 0 20px 40px rgba(0, 0, 0, 0.35);
+        }
+
+        .profile-image::after {
+            content: '';
+            position: absolute;
+            inset: -22px;
+            border-radius: 1.6rem;
+            background: radial-gradient(circle at 35% 25%, rgba(59, 130, 246, 0.35), transparent 60%);
+            filter: blur(18px);
+            z-index: -1;
         }
 
         .profile-image img {
@@ -375,7 +417,7 @@
 
         /* Sobre */
         .about {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.5) 0%, rgba(30, 41, 59, 0.5) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(2, 6, 23, 0.45) 100%);
         }
 
         .about-grid {
@@ -403,17 +445,18 @@
         }
 
         .highlight {
-            background: rgba(30, 41, 59, 0.8);
-            border-left: 4px solid var(--primary);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
             padding: 1.5rem;
-            border-radius: 0.5rem;
+            border-radius: 0.9rem;
             transition: all 0.3s;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
         }
 
         .highlight:hover {
-            border-left-color: var(--secondary);
-            transform: translateX(10px);
-            background: rgba(30, 41, 59, 1);
+            border-color: rgba(96, 165, 250, 0.5);
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.08);
         }
 
         .highlight h4 {
@@ -530,7 +573,7 @@
 
         /* Educação e Projetos */
         .education, .projects {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.5) 0%, rgba(30, 41, 59, 0.5) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(30, 41, 59, 0.3) 100%);
         }
 
         .education-grid {
@@ -540,13 +583,14 @@
         }
 
         .education-card {
-            background: rgba(30, 41, 59, 0.8);
+            background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border-color);
             padding: 2rem;
-            border-radius: 0.5rem;
+            border-radius: 0.9rem;
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(10px);
         }
 
         .education-card::before {
@@ -560,9 +604,34 @@
         }
 
         .education-card:hover {
-            border-color: var(--primary);
+            border-color: rgba(96, 165, 250, 0.55);
             transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.15);
+            box-shadow: 0 16px 45px rgba(59, 130, 246, 0.16);
+        }
+
+        .projects .education-card {
+            background: rgba(15, 23, 42, 0.48);
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+
+        .projects .education-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            border: 1px solid transparent;
+            background: linear-gradient(130deg, rgba(59, 130, 246, 0.42), rgba(6, 182, 212, 0.15)) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .projects .education-card:hover::after {
+            opacity: 1;
         }
 
         .education-card h3 {
@@ -684,6 +753,18 @@
             box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
         }
 
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            will-change: opacity, transform;
+        }
+
+        .reveal.reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Footer */
         footer {
             background: rgba(15, 23, 42, 0.95);
@@ -740,6 +821,9 @@
             cursor: pointer;
             padding: 5px;
             z-index: 200;
+            background: transparent;
+            border: none;
+            border-radius: 0.5rem;
         }
 
         .hamburger span {
@@ -819,6 +903,22 @@
                 transform: translate(-50%, -50%) rotate(0deg); /* Tira a inclinação no celular para caber melhor */
             }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *, *::before, *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -827,12 +927,12 @@
             <a href="#" class="logo">
                 RF<span class="logo-dot"></span>
             </a>
-            <div class="hamburger" onclick="document.querySelector('nav ul').classList.toggle('active')">
+            <button class="hamburger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
-            <ul>
+            </button>
+            <ul id="menu-principal">
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#experiencia">Experiência</a></li>
                 <li><a href="#educacao">Educação</a></li>
@@ -845,9 +945,10 @@
     </header>
 
     <section class="hero">
-         <div class="hero-content">
+         <div class="hero-content reveal">
         
             <h1>Olá, sou <span class="highlight">Richardson Ferreira</span></h1>
+            <p class="hero-subtitle">Transformando experiência prática em infraestrutura e redes em soluções de software com visão de produto.</p>
             <p>Estudante de <strong>Engenharia de Software</strong> em transição de carreira, com mais de 7 anos de experiência em <strong>infraestrutura, redes FTTH, hardware, instalações elétricas e atendimento ao público.</strong></p>
             <p>A vivência direta com o público desenvolveu competências como <strong>empatia</strong> e <strong>comunicação clara</strong>, ampliando minha visão para construir soluções tecnológicas alinhadas às necessidades reais dos usuários.</p>
             <p>Atualmente focado em <strong>Python, JavaScript e C#</strong>, com estudos em <strong>PostgreSQL, MongoDB e Docker Compose</strong>. Busco minha primeira oportunidade de estágio para integrar <strong>resolução de problemas</strong> com <strong>desenvolvimento de software</strong> em equipes que priorizam código limpo e impacto positivo.</p>
@@ -859,7 +960,7 @@
 
         </div>
 
-        <div class="hero-image">
+        <div class="hero-image reveal">
             <div class="profile-card">
                 <div class="profile-image">
                     <img src="https://github.com/richaferreira.png" alt="Richardson Ferreira" onerror="this.style.display='none'">
@@ -879,35 +980,27 @@
 
     <section id="sobre" class="about">
         <div class="container">
-            <h2>Sobre Mim</h2>
+            <h2 class="reveal">Minha Jornada</h2>
             <div class="about-grid">
-                <div class="about-text">
+                <div class="about-text reveal">
                     <p>Sou um profissional apaixonado por <strong>tecnologia e inovação</strong>, atualmente cursando <strong>Engenharia de Software</strong> na Universidade de Vassouras. Minha trajetória profissional combina experiência técnica sólida com habilidades interpessoais desenvolvidas em ambientes dinâmicos.</p>
                     
-                    <p>Especializado em <strong>infraestrutura de redes FTTH</strong> e <strong>diagnóstico de problemas TCP/IP</strong>, tenho experiência prática em configuração de ativos de rede, instalação de fibra óptica e garantia de SLA de conectividade. Atualmente trabalho como <strong>Recepcionista Hospitalar</strong> na Unimed Araruama, onde aplico habilidades de gestão de sistemas e atendimento ao cliente.</p>
+                    <p>Minha base em <strong>infraestrutura de redes FTTH</strong> e <strong>diagnóstico de problemas TCP/IP</strong> fortaleceu uma mentalidade orientada a confiabilidade, performance e continuidade. Hoje conecto essa experiência ao desenvolvimento de software para criar soluções robustas e úteis para pessoas reais.</p>
                     
                 </div>
 
                 <div class="about-highlights">
-                    <div class="highlight">
-                        <h4>🌐 Infraestrutura & Redes</h4>
-                        <p>TCP/IP, FTTH, fibra óptica, configuração de ativos, diagnóstico de falhas, garantia de SLA</p>
+                    <div class="highlight reveal">
+                        <h4>1) Base Técnica em Infraestrutura</h4>
+                        <p>Experiência em redes, hardware e elétrica, com foco em disponibilidade, diagnóstico e prevenção de falhas.</p>
                     </div>
-                    <div class="highlight">
-                        <h4>💻 Hardware & Sistemas</h4>
-                        <p>Montagem e manutenção de computadores, notebooks, diagnóstico de componentes</p>
+                    <div class="highlight reveal">
+                        <h4>2) Visão de Problema Real</h4>
+                        <p>Atendimento ao público e operação em ambientes críticos desenvolveram comunicação clara, empatia e priorização.</p>
                     </div>
-                    <div class="highlight">
-                        <h4>⚙️ Desenvolvimento</h4>
-                        <p>HTML, CSS, JavaScript, Python, C#, GitHub</p>
-                    </div>
-                    <div class="highlight">
-                        <h4>⚡ Eletricista Residencial</h4>
-                        <p>Instalação, reparo, quadros de distribuição e manutenção preventiva</p>
-                    </div>
-                    <div class="highlight">
-                        <h4>🤝 Soft Skills</h4>
-                        <p>Atendimento ao cliente, trabalho em equipe, resolução de problemas, comunicação clara</p>
+                    <div class="highlight reveal">
+                        <h4>3) Engenharia de Software como Próximo Passo</h4>
+                        <p>Aplicação de Python, JavaScript e C# para transformar experiência de campo em produto, automação e melhoria contínua.</p>
                     </div>
                 </div>
             </div>
@@ -916,9 +1009,9 @@
 
     <section id="experiencia" class="experience">
         <div class="container">
-            <h2>Experiência Profissional</h2>
+            <h2 class="reveal">Experiência Profissional</h2>
             <div class="experience-grid">
-                <div class="job">
+                <div class="job reveal">
                     <div class="job-header">
                         <div>
                             <div class="job-title">Recepcionista Hospitalar</div>
@@ -935,7 +1028,7 @@
                     </div>
                 </div>
 
-                <div class="job">
+                <div class="job reveal">
                     <div class="job-header">
                         <div>
                             <div class="job-title">Técnico em Hardware e Eletricista Residencial</div>
@@ -952,7 +1045,7 @@
                     </div>
                 </div>
 
-                <div class="job">
+                <div class="job reveal">
                     <div class="job-header">
                         <div>
                             <div class="job-title">Técnico de Redes / FTTH</div>
@@ -969,7 +1062,7 @@
                     </div>
                 </div>
 
-                <div class="job">
+                <div class="job reveal">
                     <div class="job-header">
                         <div>
                             <div class="job-title">Ajudante de Caminhão</div>
@@ -986,7 +1079,7 @@
                     </div>
                 </div>
                 
-                <div class="job">
+                <div class="job reveal">
                     <div class="job-header">
                         <div>
                             <div class="job-title">Técnico de Redes / FTTH</div>
@@ -1003,7 +1096,7 @@
                     </div>
                 </div>
 
-                <div class="job">
+                <div class="job reveal">
                     <div class="job-header">
                         <div>
                             <div class="job-title">Operador de Loja</div>
@@ -1020,7 +1113,7 @@
                     </div>
                 </div>
                 
-                <div class="job">
+                <div class="job reveal">
                     <div class="job-header">
                         <div>
                             <div class="job-title">Caixa e Atendimento</div>
@@ -1042,30 +1135,30 @@
 
     <section id="educacao" class="education">
         <div class="container">
-            <h2>Formação & Certificações</h2>
+            <h2 class="reveal">Formação & Certificações</h2>
             <div class="education-grid">
-                <div class="education-card">
+                <div class="education-card reveal">
                     <h3>Engenharia de Software</h3>
                     <p><strong>Universidade de Vassouras (UV)</strong></p>
                     <p>Curso de graduação com foco em desenvolvimento de software, arquitetura de sistemas e engenharia de processos.</p>
                     <div class="education-status">📚 Cursando – 5º Período</div>
                 </div>
 
-                <div class="education-card">
+                <div class="education-card reveal">
                     <h3>Técnico em FTTH</h3>
                     <p><strong>Fibra Óptica</strong></p>
                     <p>Certificação técnica em infraestrutura de fibra óptica, instalação, manutenção e diagnóstico de falhas.</p>
                     <div class="education-status">✓ Certificado</div>
                 </div>
 
-                <div class="education-card">
+                <div class="education-card reveal">
                     <h3>Montagem & Manutenção</h3>
                     <p><strong>Computadores e Notebooks</strong></p>
                     <p>Certificação em montagem, diagnóstico e manutenção de computadores pessoais e notebooks.</p>
                     <div class="education-status">✓ Certificado</div>
                 </div>
 
-                <div class="education-card">
+                <div class="education-card reveal">
                     <h3>Eletricista Residencial</h3>
                     <p><strong>Instalações Elétricas</strong></p>
                     <p>Certificação em instalações elétricas residenciais, segurança e normas técnicas.</p>
@@ -1077,9 +1170,9 @@
             
     <section id="projetos" class="projects">
         <div class="container">
-            <h2>Projetos em Destaque</h2>
+            <h2 class="reveal">Projetos em Destaque</h2>
             <div class="education-grid">
-                <div class="education-card">
+                <div class="education-card reveal">
                     <h3>💧 InfraPlus</h3>
                     <p><strong>Plataforma Web (Full Stack)</strong></p>
                     <p>Plataforma de utilidade pública para monitoramento e denúncia de problemas hídricos. Projeto acadêmico desenvolvido na Universidade de Vassouras com foco em impacto social e soluções sustentáveis.</p>
@@ -1087,7 +1180,7 @@
                     <div class="education-status">🚀 Em Desenvolvimento</div>
                 </div>
 
-                <div class="education-card">
+                <div class="education-card reveal">
                     <h3>💻 Portfólio Pessoal</h3>
                     <p><strong>HTML, CSS & GitHub Pages</strong></p>
                     <p>Desenvolvimento, estruturação e deploy deste site profissional para apresentar minha trajetória, repositórios e habilidades práticas na área de tecnologia.</p>
@@ -1095,7 +1188,7 @@
                     <div class="education-status">✓ Concluído</div>
                 </div>
 
-                <div class="education-card">
+                <div class="education-card reveal">
                     <h3>📍 OndeTem?</h3>
                     <p><strong>Node.js, Express, Vanilla JS, Bootstrap 5, Leaflet, Google Gemini</strong></p>
                     <p>PWA de agendamento de serviços estéticos — conecta clientes a salões, clínicas e profissionais autônomos de beleza, com mapa de proximidade, pagamento online (Pix/cartão simulados) e chat com IA.</p>
@@ -1103,7 +1196,7 @@
                     <div class="education-status">🚀 Em Desenvolvimento</div>
                 </div>
 
-                <div class="education-card">
+                <div class="education-card reveal">
                     <h3>🔥 Sistema IoT de Monitoramento</h3>
                     <p><strong>Arduino, C/C++ & Componentes Elétricos</strong></p>
                     <p>Projeto prático unindo elétrica, hardware e lógica de programação: construção de um sistema integrado de alarme de incêndio e monitoramento de temperatura utilizando sensores físicos e displays.</p>
@@ -1117,9 +1210,9 @@
 
         <section id="habilidades" class="skills">
         <div class="container">
-            <h2>Habilidades Técnicas</h2>
+            <h2 class="reveal">Habilidades Técnicas</h2>
             <div class="skills-grid">
-                <div class="skill-category">
+                <div class="skill-category reveal">
                     <h3>🌐 Infraestrutura & Redes</h3>
                     <div class="skill-list">
                         <span class="skill">TCP/IP</span>
@@ -1133,7 +1226,7 @@
                     </div>
                 </div>
 
-                <div class="skill-category">
+                <div class="skill-category reveal">
                     <h3>💻 Hardware & Sistemas</h3>
                     <div class="skill-list">
                         <span class="skill">Montagem de PCs</span>
@@ -1146,7 +1239,7 @@
                     </div>
                  </div>
 
-                 <div class="skill-category">
+                 <div class="skill-category reveal">
                     <h3>⚡Eletricista Residencial</h3>
                     <div class="skill-list">                    
                         <span class="skill">Instalações Elétricas</span>
@@ -1156,7 +1249,7 @@
                     </div>
                 </div>
 
-                <div class="skill-category">
+                <div class="skill-category reveal">
                     <h3>⚙️ Desenvolvimento & Ferramentas</h3>
                     <div class="skill-list">
                         <span class="skill">HTML</span>
@@ -1169,7 +1262,7 @@
                     </div>
                 </div>
 
-                <div class="skill-category">
+                <div class="skill-category reveal">
                     <h3>🤝 Soft Skills & Idiomas</h3>
                     <div class="skill-list">
                         <span class="skill">Atendimento ao Cliente</span>
@@ -1186,21 +1279,21 @@
 
     <section id="achievements" class="achievements">
         <div class="container">
-            <h2>Conquistas no GitHub</h2>
+            <h2 class="reveal">Conquistas no GitHub</h2>
             <div class="achievements-grid">
-                <div class="achievement-item">
+                <div class="achievement-item reveal">
                     <img src="https://github.githubassets.com/assets/pair-extraordinaire-default-579438a20e01.png" alt="Pair Extraordinaire">
                     <p>Pair Extraordinaire</p>
                 </div>
-                <div class="achievement-item">
+                <div class="achievement-item reveal">
                     <img src="https://github.githubassets.com/assets/pull-shark-default-498c279a747d.png" alt="Pull Shark">
                     <p>Pull Shark</p>
                 </div>
-                <div class="achievement-item">
+                <div class="achievement-item reveal">
                     <img src="https://github.githubassets.com/assets/yolo-default-be0bbff04951.png" alt="YOLO">
                     <p>YOLO</p>
                 </div>
-                <div class="achievement-item">
+                <div class="achievement-item reveal">
                     <img src="https://github.githubassets.com/assets/quickdraw-default-39c6aec8ff89.png" alt="Quickdraw">
                     <p>Quickdraw</p>
                 </div>
@@ -1210,13 +1303,13 @@
 
     <section id="contato" class="contact">
         <div class="container">
-            <h2>Vamos Trabalhar Juntos?</h2>
-            <p>Estou aberto a oportunidades de estágio, projetos e colaborações. Vamos criar algo incrível juntos!</p>
+            <h2 class="reveal">Vamos Trabalhar Juntos?</h2>
+            <p class="reveal">Estou aberto a oportunidades de estágio, projetos e colaborações. Vamos criar algo incrível juntos!</p>
             <div class="contact-buttons">
-                <a href="mailto:richardsonferreira1995@gmail.com" class="contact-btn">📧 Email</a>
-                <a href="https://wa.me/5522999273766" class="contact-btn">📱 WhatsApp</a>
-                <a href="https://github.com/richaferreira" class="contact-btn">💻 GitHub</a>
-                <a href="https://www.linkedin.com/in/richardson-ferreira-464571264" class="contact-btn">💼 LinkedIn</a>
+                <a href="mailto:richardsonferreira1995@gmail.com" class="contact-btn reveal">📧 Email</a>
+                <a href="https://wa.me/5522999273766" class="contact-btn reveal">📱 WhatsApp</a>
+                <a href="https://github.com/richaferreira" class="contact-btn reveal">💻 GitHub</a>
+                <a href="https://www.linkedin.com/in/richardson-ferreira-464571264" class="contact-btn reveal">💼 LinkedIn</a>
             </div>
         </div>
     </section>
@@ -1224,5 +1317,44 @@
     <footer>
         <p>&copy; 2026 Richardson Ferreira. Desenvolvido com dedicação, inovação e paixão por tecnologia.</p>
     </footer>
+    <script>
+        const menuButton = document.querySelector('.hamburger');
+        const menuList = document.querySelector('#menu-principal');
+
+        if (menuButton && menuList) {
+            menuButton.addEventListener('click', () => {
+                const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+                menuButton.setAttribute('aria-expanded', String(!expanded));
+                menuButton.setAttribute('aria-label', expanded ? 'Abrir menu' : 'Fechar menu');
+                menuList.classList.toggle('active');
+            });
+
+            menuList.querySelectorAll('a').forEach((link) => {
+                link.addEventListener('click', () => {
+                    menuList.classList.remove('active');
+                    menuButton.setAttribute('aria-expanded', 'false');
+                    menuButton.setAttribute('aria-label', 'Abrir menu');
+                });
+            });
+        }
+
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const revealElements = document.querySelectorAll('.reveal');
+
+        if (!reduceMotion && revealElements.length > 0) {
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+            revealElements.forEach((element) => revealObserver.observe(element));
+        } else {
+            revealElements.forEach((element) => element.classList.add('reveal-visible'));
+        }
+    </script>
 </body>
 </html>
