@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Richardson Ferreira | Eng Em Formação </title>
+    <title>Richardson Ferreira | Portfólio em Engenharia de Software</title>
+    <meta name="description" content="Portfólio de Richardson Ferreira, estudante de Engenharia de Software com experiência em infraestrutura, redes FTTH e desenvolvimento com Python, JavaScript e C#.">
+    <meta property="og:title" content="Richardson Ferreira | Portfólio em Engenharia de Software">
+    <meta property="og:description" content="Conheça a trajetória, experiências, projetos e habilidades de Richardson Ferreira em tecnologia e desenvolvimento de software.">
+    <meta property="og:image" content="https://github.com/richaferreira.png">
+    <meta property="og:url" content="https://richaferreira.github.io/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Richardson Ferreira | Portfólio em Engenharia de Software">
+    <meta name="twitter:description" content="Portfólio com experiências, projetos e competências em engenharia de software, infraestrutura e desenvolvimento.">
+    <meta name="twitter:image" content="https://github.com/richaferreira.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -739,7 +749,14 @@
             gap: 5px;
             cursor: pointer;
             padding: 5px;
+            background: transparent;
+            border: none;
             z-index: 200;
+        }
+
+        .hamburger:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 4px;
         }
 
         .hamburger span {
@@ -827,12 +844,12 @@
             <a href="#" class="logo">
                 RF<span class="logo-dot"></span>
             </a>
-            <div class="hamburger" onclick="document.querySelector('nav ul').classList.toggle('active')">
+            <button class="hamburger" type="button" aria-label="Abrir menu de navegação" aria-controls="nav-menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
-            <ul>
+            </button>
+            <ul id="nav-menu">
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#experiencia">Experiência</a></li>
                 <li><a href="#educacao">Educação</a></li>
@@ -1224,5 +1241,28 @@
     <footer>
         <p>&copy; 2026 Richardson Ferreira. Desenvolvido com dedicação, inovação e paixão por tecnologia.</p>
     </footer>
+    <script>
+        const menuButton = document.querySelector('.hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        function setMenuState(isOpen) {
+            navMenu.classList.toggle('active', isOpen);
+            menuButton.setAttribute('aria-expanded', String(isOpen));
+            menuButton.setAttribute('aria-label', isOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação');
+        }
+
+        menuButton.addEventListener('click', function () {
+            const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+            setMenuState(!isOpen);
+        });
+
+        navMenu.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                if (window.matchMedia('(max-width: 768px)').matches) {
+                    setMenuState(false);
+                }
+            });
+        });
+    </script>
 </body>
 </html>

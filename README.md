@@ -48,7 +48,7 @@ Este é um portfólio moderno e responsivo desenvolvido em **HTML5 puro** com **
 ## 📁 Estrutura do Arquivo
 
 ```
-portfolio-enterprise.html
+index.html
 ├── <head>
 │   ├── Meta tags (viewport, charset)
 │   ├── Fontes Google (Poppins, IBM Plex Mono)
@@ -198,5 +198,4 @@ Este portfólio é de uso pessoal. Sinta-se livre para usar como referência, ma
 **Desenvolvido por Richardson Ferreira**
 
 *Última atualização: Abril 2026*
-
 
