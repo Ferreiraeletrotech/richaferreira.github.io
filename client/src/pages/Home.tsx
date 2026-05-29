@@ -1,10 +1,3 @@
-Essa ideia é fantástica! Transformar a foto no fundo de toda a página fixa, fazendo com que o conteúdo do site (textos, botões e os cards com efeito de vidro fosco) flutue e deslize por cima dela ao rolar a página, cria um efeito de **Glassmorphism Premium** digno de sites de altíssimo nível.
-
-Para fazer isso dar certo e manter o texto perfeitamente legível durante toda a rolagem, a foto foi movida para uma estrutura fixa global e foi aplicada uma camada de gradiente escuro que protege o lado esquerdo da tela (onde ficam os blocos de texto).
-
-Como combinado, aqui está o código **completo** do seu `Home.tsx` atualizado e pronto para rodar:
-
-```tsx
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Github, Linkedin, Mail, MessageCircle, ExternalLink, Code2, Briefcase, BookOpen, Zap, Download } from "lucide-react";
@@ -520,5 +513,3 @@ export default function Home() {
     </div>
   );
 }
-
-```
