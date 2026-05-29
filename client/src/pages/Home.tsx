@@ -195,13 +195,14 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background Container com Efeito Fade */}
         <div className="absolute inset-0 z-0">
-          {/* Imagem de Fundo (Cover + Controle Manual em Porcentagem) */}
+          {/* Imagem de Fundo Ajustada para Telas Largas */}
           <div 
             className="absolute inset-0 w-full h-full"
             style={{
               backgroundImage: 'url(/profile.jpg)',
-              backgroundSize: 'cover',
-              backgroundPosition: '100% 25%', // <-- Controle fino: 100% à direita, 25% de altura
+              // 'auto 100%' trava a altura em 100% da tela e impede o zoom horizontal
+              backgroundSize: 'auto 100%', 
+              backgroundPosition: 'right bottom', // Encosta na direita e na base
               backgroundRepeat: 'no-repeat',
             }}
           />
