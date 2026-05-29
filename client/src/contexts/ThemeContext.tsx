@@ -16,6 +16,10 @@ interface ThemeProviderProps {
   switchable?: boolean;
 }
 
+/**
+ * Provedor de Contexto de Tema
+ * Gerencia o estado de tema (claro/escuro) da aplicação
+ */
 export function ThemeProvider({
   children,
   defaultTheme = "light",
@@ -55,10 +59,13 @@ export function ThemeProvider({
   );
 }
 
+/**
+ * Hook personalizado para acessar o tema atual
+ */
 export function useTheme() {
   const context = useContext(ThemeContext);
   if (!context) {
-    throw new Error("useTheme must be used within ThemeProvider");
+    throw new Error("useTheme deve ser usado dentro de um ThemeProvider");
   }
   return context;
 }

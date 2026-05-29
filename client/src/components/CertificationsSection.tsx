@@ -74,11 +74,11 @@ export default function CertificationsSection() {
             onMouseLeave={() => setHoveredId(null)}
             className="group relative p-6 rounded-xl bg-card/40 border border-border/20 backdrop-blur-sm hover:border-primary/50 hover:bg-card/60 transition-all duration-300 cursor-pointer h-full flex flex-col"
           >
-            {/* Gradient overlay on hover */}
+            {/* Sobreposição de gradiente no hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
             <div className="relative z-10 flex flex-col h-full">
-              {/* Header */}
+              {/* Cabeçalho */}
               <div className="flex items-start justify-between mb-4">
                 <div className="text-4xl">{cert.badge}</div>
                 {cert.link && (
@@ -93,23 +93,23 @@ export default function CertificationsSection() {
                 )}
               </div>
 
-              {/* Title */}
+              {/* Título */}
               <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                 {cert.title}
               </h3>
 
-              {/* Issuer */}
+              {/* Emissor */}
               <p className="text-sm text-primary font-semibold mb-1">{cert.issuer}</p>
 
-              {/* Date */}
+              {/* Data */}
               <p className="text-xs text-muted-foreground mb-3">{cert.date}</p>
 
-              {/* Description */}
+              {/* Descrição */}
               <p className="text-sm text-muted-foreground mb-4 flex-grow">
                 {cert.description}
               </p>
 
-              {/* Skills Tags */}
+              {/* Tags de Habilidades */}
               <div className="flex flex-wrap gap-2">
                 {cert.skills.map((skill, idx) => (
                   <span
@@ -121,7 +121,7 @@ export default function CertificationsSection() {
                 ))}
               </div>
 
-              {/* Checkmark indicator */}
+              {/* Indicador de verificação */}
               <div className="mt-4 pt-4 border-t border-border/20">
                 <div className="flex items-center gap-2 text-xs text-secondary font-semibold">
                   <CheckCircle className="w-4 h-4" />
@@ -133,7 +133,7 @@ export default function CertificationsSection() {
         ))}
       </div>
 
-      {/* Stats Footer */}
+      {/* Rodapé de Estatísticas */}
       <div className="grid grid-cols-3 gap-4 pt-8">
         <div className="p-4 rounded-lg bg-card/40 border border-border/20 backdrop-blur-sm hover:border-primary/50 transition-colors text-center">
           <div className="text-3xl font-bold text-primary mb-1">4</div>

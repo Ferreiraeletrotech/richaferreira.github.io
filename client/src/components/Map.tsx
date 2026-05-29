@@ -1,7 +1,7 @@
 /**
- * GOOGLE MAPS FRONTEND INTEGRATION - ESSENTIAL GUIDE
+ * INTEGRAÇÃO FRONTEND DO GOOGLE MAPS - GUIA ESSENCIAL
  *
- * USAGE FROM PARENT COMPONENT:
+ * USO A PARTIR DO COMPONENTE PAI:
  * ======
  *
  * const mapRef = useRef<google.maps.Map | null>(null);
@@ -10,14 +10,14 @@
  *   initialCenter={{ lat: 40.7128, lng: -74.0060 }}
  *   initialZoom={15}
  *   onMapReady={(map) => {
- *     mapRef.current = map; // Store to control map from parent anytime, google map itself is in charge of the re-rendering, not react state.
+ *     mapRef.current = map; // Armazena para controlar o mapa a partir do pai a qualquer momento. O próprio Google Maps cuida da renderização, não o estado do React.
  * </MapView>
  *
  * ======
- * Available Libraries and Core Features:
+ * Bibliotecas Disponíveis e Funcionalidades Principais:
  * -------------------------------
- * 📍 MARKER (from `marker` library)
- * - Attaches to map using { map, position }
+ * 📍 MARCADOR (da biblioteca `marker`)
+ * - Anexa ao mapa usando { map, position }
  * new google.maps.marker.AdvancedMarkerElement({
  *   map,
  *   position: { lat: 37.7749, lng: -122.4194 },
@@ -25,16 +25,16 @@
  * });
  *
  * -------------------------------
- * 🏢 PLACES (from `places` library)
- * - Does not attach directly to map; use data with your map manually.
+ * 🏢 LUGARES (da biblioteca `places`)
+ * - Não anexa diretamente ao mapa; use os dados com seu mapa manualmente.
  * const place = new google.maps.places.Place({ id: PLACE_ID });
  * await place.fetchFields({ fields: ["displayName", "location"] });
  * map.setCenter(place.location);
  * new google.maps.marker.AdvancedMarkerElement({ map, position: place.location });
  *
  * -------------------------------
- * 🧭 GEOCODER (from `geocoding` library)
- * - Standalone service; manually apply results to map.
+ * 🧭 GEOCODER (da biblioteca `geocoding`)
+ * - Serviço independente; aplique os resultados manualmente ao mapa.
  * const geocoder = new google.maps.Geocoder();
  * geocoder.geocode({ address: "New York" }, (results, status) => {
  *   if (status === "OK" && results[0]) {
@@ -47,13 +47,13 @@
  * });
  *
  * -------------------------------
- * 📐 GEOMETRY (from `geometry` library)
- * - Pure utility functions; not attached to map.
+ * 📐 GEOMETRIA (da biblioteca `geometry`)
+ * - Funções utilitárias puras; não anexadas ao mapa.
  * const dist = google.maps.geometry.spherical.computeDistanceBetween(p1, p2);
  *
  * -------------------------------
- * 🛣️ ROUTES (from `routes` library)
- * - Combines DirectionsService (standalone) + DirectionsRenderer (map-attached)
+ * 🛣️ ROTAS (da biblioteca `routes`)
+ * - Combina DirectionsService (independente) + DirectionsRenderer (anexado ao mapa)
  * const directionsService = new google.maps.DirectionsService();
  * const directionsRenderer = new google.maps.DirectionsRenderer({ map });
  * directionsService.route(
@@ -62,16 +62,16 @@
  * );
  *
  * -------------------------------
- * 🌦️ MAP LAYERS (attach directly to map)
+ * 🌦️ CAMADAS DO MAPA (anexar diretamente ao mapa)
  * - new google.maps.TrafficLayer().setMap(map);
  * - new google.maps.TransitLayer().setMap(map);
  * - new google.maps.BicyclingLayer().setMap(map);
  *
  * -------------------------------
- * ✅ SUMMARY
- * - “map-attached” → AdvancedMarkerElement, DirectionsRenderer, Layers.
- * - “standalone” → Geocoder, DirectionsService, DistanceMatrixService, ElevationService.
- * - “data-only” → Place, Geometry utilities.
+ * ✅ RESUMO
+ * - “anexado ao mapa” → AdvancedMarkerElement, DirectionsRenderer, Camadas.
+ * - “independente” → Geocoder, DirectionsService, DistanceMatrixService, ElevationService.
+ * - “apenas dados” → Place, Utilitários de Geometria.
  */
 
 /// <reference types="@types/google.maps" />
@@ -100,10 +100,10 @@ function loadMapScript() {
     script.crossOrigin = "anonymous";
     script.onload = () => {
       resolve(null);
-      script.remove(); // Clean up immediately
+      script.remove(); // Limpa imediatamente
     };
     script.onerror = () => {
-      console.error("Failed to load Google Maps script");
+      console.error("Falha ao carregar o script do Google Maps");
     };
     document.head.appendChild(script);
   });
@@ -128,7 +128,7 @@ export function MapView({
   const init = usePersistFn(async () => {
     await loadMapScript();
     if (!mapContainer.current) {
-      console.error("Map container not found");
+      console.error("Container do mapa não encontrado");
       return;
     }
     map.current = new window.google.maps.Map(mapContainer.current, {

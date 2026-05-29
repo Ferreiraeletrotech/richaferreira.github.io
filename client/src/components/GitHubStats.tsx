@@ -18,7 +18,7 @@ export default function GitHubStats({ username }: GitHubStatsProps) {
     return (
       <div className="p-6 rounded-xl bg-card/40 border border-border/20 backdrop-blur-sm">
         <div className="text-center text-muted-foreground">
-          <Github className="w-8 h-8 mx-auto mb-2 opacity-50" />
+          <開 Github className="w-8 h-8 mx-auto mb-2 opacity-50" />
           <p>Erro ao carregar dados do GitHub</p>
         </div>
       </div>
@@ -27,7 +27,7 @@ export default function GitHubStats({ username }: GitHubStatsProps) {
 
   return (
     <div className="space-y-6">
-      {/* Profile Header */}
+      {/* Cabeçalho do Perfil */}
       <div className="p-6 rounded-xl bg-card/40 border border-border/20 backdrop-blur-sm hover:border-primary/50 hover:bg-card/60 transition-all duration-300">
         <div className="flex items-start gap-4">
           <img
@@ -68,7 +68,7 @@ export default function GitHubStats({ username }: GitHubStatsProps) {
         </div>
       </div>
 
-      {/* Languages */}
+      {/* Linguagens */}
       {Object.keys(stats.languages).length > 0 && (
         <div className="p-6 rounded-xl bg-card/40 border border-border/20 backdrop-blur-sm hover:border-primary/50 hover:bg-card/60 transition-all duration-300">
           <h4 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
@@ -100,19 +100,19 @@ export default function GitHubStats({ username }: GitHubStatsProps) {
         </div>
       )}
 
-      {/* Achievements */}
+      {/* Conquistas (Achievements) */}
       <div className="p-6 rounded-xl bg-card/40 border border-border/20 backdrop-blur-sm hover:border-primary/50 hover:bg-card/60 transition-all duration-300">
         <h4 className="text-lg font-bold text-foreground mb-6 flex items-center gap-2">
           <span className="text-2xl">🏆</span>
-          Achievements & Realizações
+          Conquistas & Realizações
         </h4>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {/* Achievement 1 - 500+ FTTH */}
+          {/* Conquista 1 - 500+ FTTH */}
           <div className="flex flex-col items-center text-center group">
             <div className="w-32 h-32 mb-3 hover:scale-110 transition-transform duration-300 cursor-pointer">
               <img 
                 src="/achievement-ftth-500.png" 
-                alt="500+ FTTH Installations Achievement"
+                alt="Conquista de 500+ Instalações FTTH"
                 className="w-full h-full object-contain drop-shadow-lg"
               />
             </div>
@@ -120,12 +120,12 @@ export default function GitHubStats({ username }: GitHubStatsProps) {
             <p className="text-xs text-muted-foreground mt-1">Instalações</p>
           </div>
 
-          {/* Achievement 2 - Hardware Expert */}
+          {/* Conquista 2 - Especialista em Hardware */}
           <div className="flex flex-col items-center text-center group">
             <div className="w-32 h-32 mb-3 hover:scale-110 transition-transform duration-300 cursor-pointer">
               <img 
                 src="/achievement-hardware.png" 
-                alt="Hardware Expert Achievement"
+                alt="Conquista de Especialista em Hardware"
                 className="w-full h-full object-contain drop-shadow-lg"
               />
             </div>
@@ -133,25 +133,25 @@ export default function GitHubStats({ username }: GitHubStatsProps) {
             <p className="text-xs text-muted-foreground mt-1">Especialista</p>
           </div>
 
-          {/* Achievement 3 - Full Stack Developer */}
+          {/* Conquista 3 - Desenvolvedor Full Stack */}
           <div className="flex flex-col items-center text-center group">
             <div className="w-32 h-32 mb-3 hover:scale-110 transition-transform duration-300 cursor-pointer">
               <img 
                 src="/achievement-fullstack.png" 
-                alt="Full Stack Developer Achievement"
+                alt="Conquista de Desenvolvedor Full Stack"
                 className="w-full h-full object-contain drop-shadow-lg"
               />
             </div>
             <h5 className="font-semibold text-foreground text-sm group-hover:text-primary transition-colors">Full Stack</h5>
-            <p className="text-xs text-muted-foreground mt-1">Developer</p>
+            <p className="text-xs text-muted-foreground mt-1">Desenvolvedor</p>
           </div>
 
-          {/* Achievement 4 - 99.5% SLA Uptime */}
+          {/* Conquista 4 - 99.5% SLA Uptime */}
           <div className="flex flex-col items-center text-center group">
             <div className="w-32 h-32 mb-3 hover:scale-110 transition-transform duration-300 cursor-pointer">
               <img 
                 src="/achievement-uptime.png" 
-                alt="99.5% SLA Uptime Achievement"
+                alt="Conquista de 99.5% SLA Uptime"
                 className="w-full h-full object-contain drop-shadow-lg"
               />
             </div>
@@ -161,7 +161,7 @@ export default function GitHubStats({ username }: GitHubStatsProps) {
         </div>
       </div>
 
-      {/* Top Repositories */}
+      {/* Principais Repositórios */}
       {stats.repositories.length > 0 && (
         <div className="space-y-3">
           <h4 className="text-lg font-bold text-foreground flex items-center gap-2">
@@ -216,7 +216,7 @@ export default function GitHubStats({ username }: GitHubStatsProps) {
         </div>
       )}
 
-      {/* Loading State */}
+      {/* Estado de Carregamento */}
       {stats.loading && (
         <div className="space-y-4">
           <Skeleton className="h-24 rounded-lg" />
