@@ -1,84 +1,68 @@
-# Portfólio Pessoal - Richardson Ferreira
+# 🚀 Portfólio Pessoal - Richardson Ferreira
 
-Este é o portfólio pessoal de Richardson Ferreira, um desenvolvedor em transição de carreira com experiência em infraestrutura, redes FTTH e hardware, atualmente cursando Engenharia de Software. Este projeto serve como uma vitrine para seus projetos, habilidades e experiência profissional.
+Este é o repositório do meu portfólio profissional, desenvolvido com **React 19** e **Tailwind CSS 4**. O site é focado em apresentar minha trajetória em Engenharia de Software e minha sólida base em infraestrutura de redes e hardware.
 
-## Tecnologias Utilizadas
+## 🌐 Site Online
+O site é publicado automaticamente e pode ser acessado em:
+**[richaferreira.github.io](https://richaferreira.github.io)**
 
-O projeto é construído com as seguintes tecnologias:
+---
 
--   **Frontend:** React 19, Vite, TypeScript, TailwindCSS
--   **Roteamento:** Wouter
--   **Componentes UI:** shadcn/ui
--   **Ícones:** Lucide React
+## 🛠️ Tecnologias e Ferramentas
+
+-   **Core:** React 19 + TypeScript + Vite
+-   **Estilização:** Tailwind CSS 4 + shadcn/ui
 -   **Animações:** Framer Motion
+-   **Ícones:** Lucide React
+-   **Deploy:** GitHub Actions (CI/CD)
 
-## Funcionalidades
+---
 
-O portfólio apresenta as seguintes seções:
+## 🚀 Fluxo de Deploy (GitHub Pages)
 
--   **Sobre Mim:** Uma introdução detalhada sobre Richardson Ferreira, sua trajetória e objetivos.
--   **Projetos:** Destaque para projetos desenvolvidos, incluindo InfraPlus, OndeTem?, e Sistema IoT de Monitoramento.
--   **Habilidades:** Lista de habilidades técnicas e soft skills.
--   **Experiência Profissional:** Detalhes sobre a experiência em diversas áreas, como Técnico de Redes, Hardware e Eletricista Residencial.
--   **Certificações:** Seção dedicada às certificações obtidas.
--   **Contato:** Informações para contato e links para perfis profissionais.
+Este repositório utiliza **GitHub Actions** para automatizar o processo de publicação. Você não precisa fazer o build manualmente.
 
-## Como Rodar Localmente
+1.  **Push para a Main:** Sempre que um novo código é enviado para a branch `main`, um "Workflow" é disparado.
+2.  **Build Automatizado:** O GitHub Actions instala as dependências (via `pnpm`), compila o código TypeScript e gera os arquivos estáticos.
+3.  **Publicação:** Os arquivos gerados na pasta `dist/public` são enviados diretamente para os servidores do GitHub Pages.
 
-Para configurar e rodar este projeto em sua máquina local, siga os passos abaixo:
+> **Nota:** Para acompanhar o status do deploy, acesse a aba **Actions** no topo deste repositório.
 
-### Pré-requisitos
+---
 
-Certifique-se de ter o Node.js e o pnpm instalados.
+## 💻 Desenvolvimento Local
 
-### Instalação
+Se desejar rodar o projeto em sua máquina:
 
-1.  Clone o repositório:
-    ```bash
-    git clone https://github.com/richaferreira/richaferreira.github.io.git
-    cd richaferreira.github.io
-    ```
+### 1. Requisitos
+- Node.js (v20 ou superior)
+- pnpm
 
-2.  Instale as dependências:
-    ```bash
-    pnpm install
-    ```
+### 2. Instalação
+```bash
+git clone https://github.com/richaferreira/richaferreira.github.io.git
+cd richaferreira.github.io
+pnpm install
+```
 
-### Execução
-
-Para iniciar o servidor de desenvolvimento:
-
+### 3. Execução
 ```bash
 pnpm dev
 ```
+O site estará disponível em `http://localhost:3000`.
 
-O aplicativo estará disponível em `http://localhost:5173` (ou outra porta disponível).
+---
 
-## Estrutura do Projeto
+## 📂 Estrutura de Pastas
 
-A estrutura principal do projeto é organizada da seguinte forma:
+-   `client/`: Todo o código-fonte do frontend (Páginas, Componentes, Estilos).
+-   `.github/workflows/`: Script de automação do deploy.
+-   `patches/`: Correções necessárias para dependências específicas.
+-   `dist/`: (Gerada no build) Pasta que contém o site final que vai para o ar.
 
-```
-richaferreira.github.io/
-├── client/                 # Código-fonte do frontend (React, Vite)
-│   ├── public/             # Arquivos estáticos (favicon, robots.txt, imagens)
-│   ├── src/                # Componentes, páginas, contextos, hooks, etc.
-│   │   ├── components/     # Componentes reutilizáveis da UI
-│   │   ├── contexts/       # Contextos React
-│   │   ├── hooks/          # Hooks personalizados
-│   │   ├── lib/            # Funções utilitárias
-│   │   ├── pages/          # Páginas principais do portfólio
-│   │   ├── App.tsx         # Configuração de rotas
-│   │   └── main.tsx        # Ponto de entrada do React
-│   └── index.html          # Arquivo HTML principal
-├── server/                 # Placeholder para compatibilidade com templates (sem funcionalidade de API)
-├── shared/                 # Placeholder para compatibilidade com templates (constantes compartilhadas)
-├── patches/                # Patches de dependências
-├── package.json            # Metadados e scripts do projeto
-├── pnpm-lock.yaml          # Bloqueio de dependências do pnpm
-└── README.md               # Este arquivo
-```
+---
 
-## Contato
+## ✉️ Contato
 
-Para entrar em contato com Richardson Ferreira, visite o portfólio e utilize a seção de contato ou os links para suas redes sociais e GitHub.
+-   **LinkedIn:** [Richardson Ferreira](https://www.linkedin.com/in/richardson-ferreira-832a51235/)
+-   **GitHub:** [@richaferreira](https://github.com/richaferreira)
