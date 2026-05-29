@@ -143,23 +143,23 @@
 
 @layer components {
   /**
-   * Custom container utility that centers content and adds responsive padding.
+   * Utilitário de container personalizado que centraliza o conteúdo e adiciona preenchimento responsivo.
    *
-   * This overrides Tailwind's default container behavior to:
-   * - Auto-center content (mx-auto)
-   * - Add responsive horizontal padding
-   * - Set max-width for large screens
+   * Isso substitui o comportamento padrão do container do Tailwind para:
+   * - Centralizar automaticamente o conteúdo (mx-auto)
+   * - Adicionar preenchimento horizontal responsivo
+   * - Definir largura máxima para telas grandes
    *
-   * Usage: <div className="container">...</div>
+   * Uso: <div className="container">...</div>
    *
-   * For custom widths, use max-w-* utilities directly:
+   * Para larguras personalizadas, use os utilitários max-w-* diretamente:
    * <div className="max-w-6xl mx-auto px-4">...</div>
    */
   .container {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem; /* 16px - mobile padding */
+    padding-left: 1rem; /* 16px - preenchimento mobile */
     padding-right: 1rem;
   }
 
@@ -170,20 +170,20 @@
 
   @media (min-width: 640px) {
     .container {
-      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-left: 1.5rem; /* 24px - preenchimento tablet */
       padding-right: 1.5rem;
     }
   }
 
   @media (min-width: 1024px) {
     .container {
-      padding-left: 2rem; /* 32px - desktop padding */
+      padding-left: 2rem; /* 32px - preenchimento desktop */
       padding-right: 2rem;
-      max-width: 1280px; /* Standard content width */
+      max-width: 1280px; /* Largura padrão de conteúdo */
     }
   }
 
-  /* Glassmorphism and animation utilities */
+  /* Utilitários de Glassmorphism e animação */
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -235,7 +235,7 @@
     animation-delay: 200ms;
   }
 
-  /* Glassmorphism card effect */
+  /* Efeito de card Glassmorphism */
   .glass-card {
     background: rgba(26, 31, 58, 0.4);
     backdrop-filter: blur(10px);

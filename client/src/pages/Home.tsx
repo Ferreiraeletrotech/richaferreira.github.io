@@ -6,7 +6,7 @@ import GitHubStats from "@/components/GitHubStats";
 import CertificationsSection from "@/components/CertificationsSection";
 
 /**
- * Design Philosophy: Glassmorphism Elegante (Full Fixed Background)
+ * Filosofia de Design: Glassmorphism Elegante (Fundo Fixo Total)
  * - Imagem de fundo fixa ocupando a página inteira
  * - Gradiente escuro linear para máxima legibilidade do texto à esquerda
  * - Cards flutuantes com efeito de vidro fosco (backdrop blur)
@@ -30,7 +30,7 @@ export default function Home() {
       id: 2,
       title: "💻 Portfólio Pessoal",
       subtitle: "HTML, CSS & GitHub Pages",
-      description: "Site profissional para apresentar trajetória, repositórios e habilidades práticas in tecnologia.",
+      description: "Site profissional para apresentar trajetória, repositórios e habilidades práticas em tecnologia.",
       tech: ["HTML", "CSS", "JavaScript"],
       link: "https://github.com/richaferreira/richaferreira.github.io",
       status: "Concluído"
@@ -195,7 +195,7 @@ export default function Home() {
       </div>
       {/* ========================================================================= */}
 
-      {/* Navigation */}
+      {/* Navegação */}
       <nav className="sticky top-0 z-50 border-b border-border/10 bg-background/20 backdrop-blur-xl">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
@@ -213,7 +213,7 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section (Fundo removido daqui pois agora reflete o Fundo Fixo da página) */}
+      {/* Seção Hero (Fundo removido daqui pois agora reflete o Fundo Fixo da página) */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="container mx-auto px-4 relative z-10 py-20">
           <div className="max-w-2xl">
@@ -260,7 +260,7 @@ export default function Home() {
               </Button>
             </div>
 
-            {/* Stats */}
+            {/* Estatísticas */}
             <div className="grid grid-cols-3 gap-4 pt-12 animate-in fade-in slide-in-from-left duration-700 delay-500">
               <div className="p-4 rounded-lg bg-card/40 border border-border/20 backdrop-blur-sm hover:border-primary/50 transition-colors">
                 <div className="text-3xl font-bold text-primary">7+</div>
@@ -279,7 +279,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* Seção Sobre */}
       <section id="sobre" className="py-20 border-t border-border/10">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-12">Sobre Mim</h2>
@@ -291,24 +291,167 @@ export default function Home() {
               </p>
               
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Especializado em <strong className="text-foreground">infraestrutura de redes FTTH</strong> e <strong className="text-foreground">diagnóstico de problemas TCP/IP</strong>, tenho experiência prática em configuração de ativos de rede, instalação de fibra óptica e garantia de SLA de conectividade.
+                Especializado em <strong className="text-foreground">infraestrutura de redes FTTH</strong> e <strong className="text-foreground">hardware</strong>, possuo uma base sólida em resolução de problemas complexos e diagnóstico técnico. Atualmente, estou focado em expandir meus conhecimentos para o desenvolvimento de software, aplicando minha experiência prática em novos desafios tecnológicos.
               </p>
+
+              <div className="grid grid-cols-2 gap-4 pt-4">
+                <div className="space-y-2">
+                  <h4 className="font-semibold text-primary">Educação</h4>
+                  <p className="text-sm text-muted-foreground">Engenharia de Software<br />Univ. de Vassouras</p>
+                </div>
+                <div className="space-y-2">
+                  <h4 className="font-semibold text-primary">Localização</h4>
+                  <p className="text-sm text-muted-foreground">Araruama, RJ<br />Brasil</p>
+                </div>
+              </div>
             </div>
 
-            <div className="grid gap-4">
-              {[
-                { icon: "🌐", title: "Infraestrutura & Redes", desc: "TCP/IP, FTTH, fibra óptica, configuração de ativos" },
-                { icon: "💻", title: "Hardware & Sistemas", desc: "Montagem, manutenção, diagnóstico de componentes" },
-                { icon: "⚙️", title: "Desenvolvimento", desc: "HTML, CSS, JavaScript, Python, C#, GitHub" },
-                { icon: "🤝", title: "Soft Skills", desc: "Atendimento, trabalho em equipe, communication clara" }
-              ].map((item, idx) => (
-                <div 
-                  key={idx}
-                  className="p-4 rounded-lg bg-card/40 border border-border/20 backdrop-blur-sm hover:border-primary/50 hover:bg-card/60 transition-all duration-300"
-                >
-                  <div className="text-2xl mb-2">{item.icon}</div>
-                  <h3 className="font-semibold text-foreground mb-1">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Card className="p-6 bg-card/40 border-border/20 backdrop-blur-md hover:border-primary/50 transition-all duration-300 group">
+                <Code2 className="w-10 h-10 text-primary mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="text-xl font-bold mb-2">Desenvolvimento</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Focado em Python, JavaScript (React/Node) e C#. Construindo soluções modernas e escaláveis.
+                </p>
+              </Card>
+
+              <Card className="p-6 bg-card/40 border-border/20 backdrop-blur-md hover:border-primary/50 transition-all duration-300 group">
+                <Zap className="w-10 h-10 text-primary mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="text-xl font-bold mb-2">Infraestrutura</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Experiência avançada em redes TCP/IP, fibra óptica (FTTH) e configuração de ativos de rede.
+                </p>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Seção de Projetos */}
+      <section id="projetos" className="py-20 bg-background/30 backdrop-blur-sm border-t border-border/10">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-end mb-12">
+            <div>
+              <h2 className="text-4xl font-bold mb-4">Projetos em Destaque</h2>
+              <p className="text-muted-foreground">Uma seleção dos meus trabalhos recentes em desenvolvimento e hardware.</p>
+            </div>
+            <Button variant="ghost" className="hidden md:flex gap-2 text-primary" asChild>
+              <a href="https://github.com/richaferreira" target="_blank" rel="noopener noreferrer">
+                Ver todos no GitHub <ExternalLink className="w-4 h-4" />
+              </a>
+            </Button>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {projects.map((project, index) => (
+              <Card 
+                key={project.id}
+                className="overflow-hidden bg-card/40 border-border/20 backdrop-blur-md hover:border-primary/50 transition-all duration-500 group"
+                onMouseEnter={() => setHoveredProject(index)}
+                onMouseLeave={() => setHoveredProject(null)}
+              >
+                <div className="p-8">
+                  <div className="flex justify-between items-start mb-6">
+                    <div>
+                      <span className="text-xs font-mono text-primary uppercase tracking-wider mb-2 block">
+                        {project.subtitle}
+                      </span>
+                      <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">
+                        {project.title}
+                      </h3>
+                    </div>
+                    <div className="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-bold text-primary uppercase">
+                      {project.status}
+                    </div>
+                  </div>
+                  
+                  <p className="text-muted-foreground mb-8 leading-relaxed">
+                    {project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    {project.tech.map(t => (
+                      <span key={t} className="px-3 py-1 rounded-md bg-background/50 border border-border/20 text-xs font-medium">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  <Button className="w-full gap-2 group/btn" asChild>
+                    <a href={project.link} target="_blank" rel="noopener noreferrer">
+                      Ver Repositório <Github className="w-4 h-4 group-hover/btn:rotate-12 transition-transform" />
+                    </a>
+                  </Button>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Seção de Habilidades */}
+      <section id="habilidades" className="py-20 border-t border-border/10">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold mb-12 text-center">Minhas Habilidades</h2>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {skills.map((skillGroup) => (
+              <Card key={skillGroup.category} className="p-8 bg-card/40 border-border/20 backdrop-blur-md hover:border-primary/50 transition-all duration-300">
+                <h3 className="text-xl font-bold mb-6 text-primary border-b border-primary/20 pb-2">
+                  {skillGroup.category}
+                </h3>
+                <div className="flex flex-wrap gap-3">
+                  {skillGroup.items.map(item => (
+                    <span 
+                      key={item}
+                      className="px-4 py-2 rounded-lg bg-background/60 border border-border/10 text-sm font-medium hover:bg-primary/10 hover:border-primary/30 transition-colors cursor-default"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Seção de Experiência */}
+      <section id="experiencia" className="py-20 bg-background/30 backdrop-blur-sm border-t border-border/10">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl font-bold mb-16 text-center">Trajetória Profissional</h2>
+            
+            <div className="space-y-12">
+              {experience.map((exp, index) => (
+                <div key={index} className="relative pl-8 border-l-2 border-primary/20 hover:border-primary transition-colors group pb-8">
+                  <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-background border-2 border-primary group-hover:bg-primary transition-colors" />
+                  
+                  <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                    <div>
+                      <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">{exp.title}</h3>
+                      <p className="text-primary font-medium">{exp.company}</p>
+                    </div>
+                    <div className="text-right mt-2 md:mt-0">
+                      <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold">
+                        {exp.period}
+                      </span>
+                      <p className="text-xs text-muted-foreground mt-2">{exp.location}</p>
+                    </div>
+                  </div>
+
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    {exp.description}
+                  </p>
+
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {exp.achievements.map((achievement, i) => (
+                      <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                        {achievement}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
@@ -316,198 +459,125 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section id="projetos" className="py-20 border-t border-border/10">
+      {/* Seção de Certificações */}
+      <section id="certificacoes" className="py-20 border-t border-border/10">
+        <CertificationsSection />
+      </section>
+
+      {/* Seção GitHub */}
+      <section id="github" className="py-20 bg-background/30 backdrop-blur-sm border-t border-border/10">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-12">Projetos em Destaque</h2>
-          
-          <div className="grid md:grid-cols-2 gap-6">
-            {projects.map((project) => (
-              <div
-                key={project.id}
-                onMouseEnter={() => setHoveredProject(project.id)}
-                onMouseLeave={() => setHoveredProject(null)}
-                className="group relative p-6 rounded-xl bg-card/40 border border-border/20 backdrop-blur-sm hover:border-primary/50 hover:bg-card/60 transition-all duration-300 cursor-pointer"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                
-                <div className="relative z-10 space-y-4">
-                  <div>
-                    <h3 className="text-xl font-bold text-foreground mb-1">{project.title}</h3>
-                    <p className="text-sm text-primary font-mono">{project.subtitle}</p>
-                  </div>
-                  
-                  <p className="text-muted-foreground leading-relaxed">{project.description}</p>
-                  
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech, idx) => (
-                      <span 
-                        key={idx}
-                        className="px-3 py-1 rounded-full text-xs font-mono bg-primary/10 text-primary border border-primary/30"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  <div className="flex items-center justify-between pt-4">
-                    <span className="text-xs font-semibold text-secondary">{project.status}</span>
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl font-bold mb-4">Ecossistema GitHub</h2>
+            <p className="text-muted-foreground mb-12">Monitoramento em tempo real das minhas contribuições e atividades.</p>
+            <GitHubStats />
+          </div>
+        </div>
+      </section>
+
+      {/* Seção de Contato */}
+      <section id="contato" className="py-20 border-t border-border/10">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-16">
+              <div>
+                <h2 className="text-4xl font-bold mb-6">Vamos Conversar?</h2>
+                <p className="text-lg text-muted-foreground mb-12 leading-relaxed">
+                  Estou em busca da minha primeira oportunidade como <strong className="text-foreground">estagiário em Engenharia de Software</strong>. Se você procura alguém proativo, com base técnica sólida e muita vontade de aprender, vamos nos conectar!
+                </p>
+
+                <div className="space-y-6">
+                  <a 
+                    href="mailto:richardson.ferreira.contato@gmail.com" 
+                    className="flex items-center gap-4 p-4 rounded-xl bg-card/40 border border-border/20 hover:border-primary/50 hover:bg-primary/5 transition-all group"
+                  >
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                      <Mail className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-muted-foreground uppercase font-bold tracking-wider">E-mail</p>
+                      <p className="text-lg font-medium">richardson.ferreira.contato@gmail.com</p>
+                    </div>
+                  </a>
+
+                  <a 
+                    href="https://wa.me/5522997645161" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 p-4 rounded-xl bg-card/40 border border-border/20 hover:border-green-500/50 hover:bg-green-500/5 transition-all group"
+                  >
+                    <div className="w-12 h-12 rounded-lg bg-green-500/10 flex items-center justify-center text-green-500 group-hover:scale-110 transition-transform">
+                      <MessageCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-muted-foreground uppercase font-bold tracking-wider">WhatsApp</p>
+                      <p className="text-lg font-medium">+55 (22) 99764-5161</p>
+                    </div>
+                  </a>
+
+                  <div className="flex gap-4 pt-4">
                     <a 
-                      href={project.link}
-                      target="_blank"
+                      href="https://www.linkedin.com/in/richardson-ferreira-832a51235/" 
+                      target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-primary hover:text-secondary transition-colors"
+                      className="w-12 h-12 rounded-lg bg-card/40 border border-border/20 flex items-center justify-center hover:text-primary hover:border-primary/50 transition-all"
                     >
-                      Ver Repositório
-                      <ExternalLink className="w-4 h-4" />
+                      <Linkedin className="w-6 h-6" />
+                    </a>
+                    <a 
+                      href="https://github.com/richaferreira" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 rounded-lg bg-card/40 border border-border/20 flex items-center justify-center hover:text-primary hover:border-primary/50 transition-all"
+                    >
+                      <Github className="w-6 h-6" />
                     </a>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Skills Section */}
-      <section id="habilidades" className="py-20 border-t border-border/10">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-12">Habilidades Técnicas</h2>
-          
-          <div className="grid md:grid-cols-2 gap-6">
-            {skills.map((skillGroup, idx) => (
-              <div 
-                key={idx}
-                className="p-6 rounded-xl bg-card/40 border border-border/20 backdrop-blur-sm hover:border-primary/50 hover:bg-card/60 transition-all duration-300"
-              >
-                <h3 className="text-lg font-bold text-foreground mb-4">{skillGroup.category}</h3>
-                <div className="flex flex-wrap gap-2">
-                  {skillGroup.items.map((skill, sidx) => (
-                    <span 
-                      key={sidx}
-                      className="px-3 py-2 rounded-lg text-sm font-medium bg-primary/10 text-primary border border-primary/30 hover:bg-primary/20 transition-colors"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Experience Section */}
-      <section id="experiencia" className="py-20 border-t border-border/10">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-12">Experiência Profissional</h2>
-          
-          <div className="space-y-6">
-            {experience.map((job, idx) => (
-              <div 
-                key={idx}
-                className="p-6 rounded-xl bg-card/40 border border-border/20 backdrop-blur-sm hover:border-primary/50 hover:bg-card/60 transition-all duration-300"
-              >
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-3">
-                  <div>
-                    <h3 className="text-xl font-bold text-foreground">{job.title}</h3>
-                    <p className="text-primary font-semibold">{job.company}</p>
-                    <p className="text-sm text-muted-foreground">{job.location}</p>
+              <Card className="p-8 bg-card/40 border-border/20 backdrop-blur-md">
+                <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">Seu Nome</label>
+                    <input 
+                      type="text" 
+                      className="w-full p-3 rounded-lg bg-background/50 border border-border/20 focus:border-primary outline-none transition-colors"
+                      placeholder="Como posso te chamar?"
+                    />
                   </div>
-                  <span className="text-sm font-mono text-secondary whitespace-nowrap">{job.period}</span>
-                </div>
-                <p className="text-muted-foreground leading-relaxed mb-4">{job.description}</p>
-                
-                {/* Achievements */}
-                <div className="space-y-2">
-                  <p className="text-sm font-semibold text-foreground">Principais Realizações:</p>
-                  <ul className="space-y-1">
-                    {job.achievements.map((achievement, aidx) => (
-                      <li key={aidx} className="text-sm text-muted-foreground flex items-start gap-2">
-                        <span className="text-primary mt-1">✓</span>
-                        <span>{achievement}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">Seu E-mail</label>
+                    <input 
+                      type="email" 
+                      className="w-full p-3 rounded-lg bg-background/50 border border-border/20 focus:border-primary outline-none transition-colors"
+                      placeholder="seu@email.com"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">Mensagem</label>
+                    <textarea 
+                      rows={4}
+                      className="w-full p-3 rounded-lg bg-background/50 border border-border/20 focus:border-primary outline-none transition-colors resize-none"
+                      placeholder="No que posso te ajudar?"
+                    />
+                  </div>
+                  <Button className="w-full py-6 text-lg font-bold" onClick={() => window.open('https://wa.me/5522997645161?text=Olá Richardson, vi seu portfólio e gostaria de conversar.')}>
+                    Enviar Mensagem
+                  </Button>
+                </form>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Certifications Section */}
-      <section id="certificacoes" className="py-20 border-t border-border/10">
+      {/* Rodapé */}
+      <footer className="py-12 border-t border-border/10 text-center">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-12">Certificações & Credenciais</h2>
-          <CertificationsSection />
-        </div>
-      </section>
-
-      {/* GitHub Stats Section */}
-      <section id="github" className="py-20 border-t border-border/10">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-12">Atividade no GitHub</h2>
-          <GitHubStats username="richaferreira" />
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contato" className="py-20 border-t border-border/10">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6">Vamos Trabalhar Juntos?</h2>
-          <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Estou aberto a oportunidades de estágio, projetos e colaborações. Vamos criar algo incrível juntos!
+          <p className="text-muted-foreground text-sm">
+            © {new Date().getFullYear()} Richardson Ferreira. Desenvolvido com React, Tailwind e ❤️
           </p>
-          
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button 
-              asChild
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-            >
-              <a href="mailto:richardsonferreira1995@gmail.com" className="inline-flex items-center gap-2">
-                <Mail className="w-4 h-4" />
-                Email
-              </a>
-            </Button>
-            <Button 
-              asChild
-              variant="outline"
-              className="border-primary/50 hover:border-primary hover:bg-primary/10 text-primary font-semibold"
-            >
-              <a href="https://wa.me/5522999273766" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
-                <MessageCircle className="w-4 h-4" />
-                WhatsApp
-              </a>
-            </Button>
-            <Button 
-              asChild
-              variant="outline"
-              className="border-primary/50 hover:border-primary hover:bg-primary/10 text-primary font-semibold"
-            >
-              <a href="https://github.com/richaferreira" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
-                <Github className="w-4 h-4" />
-                GitHub
-              </a>
-            </Button>
-            <Button 
-              asChild
-              variant="outline"
-              className="border-primary/50 hover:border-primary hover:bg-primary/10 text-primary font-semibold"
-            >
-              <a href="https://www.linkedin.com/in/richardson-ferreira-464571264" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
-                <Linkedin className="w-4 h-4" />
-                LinkedIn
-              </a>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="border-t border-border/10 bg-background/40 backdrop-blur-sm py-8">
-        <div className="container mx-auto px-4 text-center text-muted-foreground text-sm">
-          <p>&copy; 2026 Richardson Ferreira. Desenvolvido com dedicação, inovação e paixão por tecnologia.</p>
         </div>
       </footer>
     </div>

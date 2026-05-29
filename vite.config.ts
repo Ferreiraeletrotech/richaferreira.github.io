@@ -7,14 +7,14 @@ import { defineConfig, type Plugin, type ViteDevServer } from "vite";
 import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
 
 // =============================================================================
-// Manus Debug Collector - Vite Plugin
-// Writes browser logs directly to files, trimmed when exceeding size limit
+// Manus Debug Collector - Plugin Vite
+// Grava logs do navegador diretamente em arquivos, truncados quando excedem o limite de tamanho
 // =============================================================================
 
 const PROJECT_ROOT = import.meta.dirname;
 const LOG_DIR = path.join(PROJECT_ROOT, ".manus-logs");
-const MAX_LOG_SIZE_BYTES = 1 * 1024 * 1024; // 1MB per log file
-const TRIM_TARGET_BYTES = Math.floor(MAX_LOG_SIZE_BYTES * 0.6); // Trim to 60% to avoid constant re-trimming
+const MAX_LOG_SIZE_BYTES = 1 * 1024 * 1024; // 1MB por arquivo de log
+const TRIM_TARGET_BYTES = Math.floor(MAX_LOG_SIZE_BYTES * 0.6); // Trunca para 60% para evitar truncamento constante
 
 type LogSource = "browserConsole" | "networkRequests" | "sessionReplay";
 
@@ -34,7 +34,7 @@ function trimLogFile(logPath: string, maxSize: number) {
     const keptLines: string[] = [];
     let keptBytes = 0;
 
-    // Keep newest lines (from end) that fit within 60% of maxSize
+    // Mantém as linhas mais recentes (do final) que cabem em 60% do maxSize
     const targetSize = TRIM_TARGET_BYTES;
     for (let i = lines.length - 1; i >= 0; i--) {
       const lineBytes = Buffer.byteLength(`${lines[i]}\n`, "utf-8");
@@ -45,7 +45,7 @@ function trimLogFile(logPath: string, maxSize: number) {
 
     fs.writeFileSync(logPath, keptLines.join("\n"), "utf-8");
   } catch {
-    /* ignore trim errors */
+    /* ignora erros de truncamento */
   }
 }
 
@@ -55,24 +55,24 @@ function writeToLogFile(source: LogSource, entries: unknown[]) {
   ensureLogDir();
   const logPath = path.join(LOG_DIR, `${source}.log`);
 
-  // Format entries with timestamps
+  // Formata entradas com timestamps
   const lines = entries.map((entry) => {
     const ts = new Date().toISOString();
     return `[${ts}] ${JSON.stringify(entry)}`;
   });
 
-  // Append to log file
+  // Anexa ao arquivo de log
   fs.appendFileSync(logPath, `${lines.join("\n")}\n`, "utf-8");
 
-  // Trim if exceeds max size
+  // Trunca se exceder o tamanho máximo
   trimLogFile(logPath, MAX_LOG_SIZE_BYTES);
 }
 
 /**
- * Vite plugin to collect browser debug logs
- * - POST /__manus__/logs: Browser sends logs, written directly to files
- * - Files: browserConsole.log, networkRequests.log, sessionReplay.log
- * - Auto-trimmed when exceeding 1MB (keeps newest entries)
+ * Plugin Vite para coletar logs de debug do navegador
+ * - POST /__manus__/logs: O navegador envia logs, gravados diretamente em arquivos
+ * - Arquivos: browserConsole.log, networkRequests.log, sessionReplay.log
+ * - Truncado automaticamente ao exceder 1MB (mantém as entradas mais recentes)
  */
 function vitePluginManusDebugCollector(): Plugin {
   return {
@@ -98,14 +98,14 @@ function vitePluginManusDebugCollector(): Plugin {
     },
 
     configureServer(server: ViteDevServer) {
-      // POST /__manus__/logs: Browser sends logs (written directly to files)
+      // POST /__manus__/logs: O navegador envia logs (gravados diretamente em arquivos)
       server.middlewares.use("/__manus__/logs", (req, res, next) => {
         if (req.method !== "POST") {
           return next();
         }
 
         const handlePayload = (payload: any) => {
-          // Write logs directly to files
+          // Grava logs diretamente em arquivos
           if (payload.consoleLogs?.length > 0) {
             writeToLogFile("browserConsole", payload.consoleLogs);
           }
@@ -158,7 +158,7 @@ function vitePluginStorageProxy(): Plugin {
         const key = req.url?.replace(/^\//, "");
         if (!key) {
           res.writeHead(400, { "Content-Type": "text/plain" });
-          res.end("Missing storage key");
+          res.end("Chave de armazenamento ausente");
           return;
         }
 
@@ -167,7 +167,7 @@ function vitePluginStorageProxy(): Plugin {
 
         if (!forgeBaseUrl || !forgeKey) {
           res.writeHead(500, { "Content-Type": "text/plain" });
-          res.end("Storage proxy not configured");
+          res.end("Proxy de armazenamento não configurado");
           return;
         }
 
@@ -181,14 +181,14 @@ function vitePluginStorageProxy(): Plugin {
 
           if (!forgeResp.ok) {
             res.writeHead(502, { "Content-Type": "text/plain" });
-            res.end("Storage backend error");
+            res.end("Erro no backend de armazenamento");
             return;
           }
 
           const { url } = (await forgeResp.json()) as { url: string };
           if (!url) {
             res.writeHead(502, { "Content-Type": "text/plain" });
-            res.end("Empty signed URL");
+            res.end("URL assinada vazia");
             return;
           }
 
@@ -196,7 +196,7 @@ function vitePluginStorageProxy(): Plugin {
           res.end();
         } catch {
           res.writeHead(502, { "Content-Type": "text/plain" });
-          res.end("Storage proxy error");
+          res.end("Erro no proxy de armazenamento");
         }
       });
     },
@@ -222,7 +222,7 @@ export default defineConfig({
   },
   server: {
     port: 3000,
-    strictPort: false, // Will find next available port if 3000 is busy
+    strictPort: false, // Encontrará a próxima porta disponível se a 3000 estiver ocupada
     host: true,
     allowedHosts: [
       ".manuspre.computer",
