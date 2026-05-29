@@ -30,7 +30,7 @@ export default function Home() {
       id: 2,
       title: "💻 Portfólio Pessoal",
       subtitle: "HTML, CSS & GitHub Pages",
-      description: "Site profissional para apresentar trajetória, repositórios e habilidades práticas in tecnologia.",
+      description: "Site profissional para apresentar trajetória, repositórios e habilidades práticas em tecnologia.",
       tech: ["HTML", "CSS", "JavaScript"],
       link: "https://github.com/richaferreira/richaferreira.github.io",
       status: "Concluído"
@@ -165,21 +165,26 @@ export default function Home() {
     <div className="min-h-screen text-foreground relative">
       
       {/* ========================================================================= */}
-      {/* NOVO BACKGROUND GLOBAL FIXO (A FOTO E OS GRADIENTES FIXOS NA TELA TODA) */}
+      {/* BACKGROUND GLOBAL FIXO */}
       {/* ========================================================================= */}
       <div className="fixed inset-0 -z-10 bg-background overflow-hidden">
-        {/* A Foto de Perfil Ocupando 100% da altura e largura proporcional */}
+        {/* A MÁGICA ESTÁ AQUI: Limitamos a caixa da foto a 60% da tela (lg:w-[60%]).
+          Isso impede o zoom extremo e faz a foto ficar do tamanho perfeito.
+        */}
         <div 
-          className="absolute inset-0 w-full h-full"
+          className="absolute inset-y-0 right-0 w-full lg:w-[60%] h-full"
           style={{
             backgroundImage: 'url(/profile.jpg)',
             backgroundSize: 'cover',
-            backgroundPosition: 'center right',
+            backgroundPosition: 'top right', // Cola no teto para não cortar a cabeça
             backgroundRepeat: 'no-repeat',
+            // Máscara que apaga a borda esquerda para mesclar perfeitamente com o fundo preto
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 35%)',
+            maskImage: 'linear-gradient(to right, transparent 0%, black 35%)',
           }}
         />
         
-        {/* Gradiente Lateral para proteger o texto à esquerda (Preto sólido -> Transparente) */}
+        {/* Gradiente Lateral para proteger o texto à esquerda */}
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 md:via-background/85 to-transparent" />
         
         {/* Camada escura geral suave para dar contraste nas outras seções durante a rolagem */}
@@ -213,7 +218,7 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section (Fundo removido daqui pois agora reflete o Fundo Fixo da página) */}
+      {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="container mx-auto px-4 relative z-10 py-20">
           <div className="max-w-2xl">
@@ -300,7 +305,7 @@ export default function Home() {
                 { icon: "🌐", title: "Infraestrutura & Redes", desc: "TCP/IP, FTTH, fibra óptica, configuração de ativos" },
                 { icon: "💻", title: "Hardware & Sistemas", desc: "Montagem, manutenção, diagnóstico de componentes" },
                 { icon: "⚙️", title: "Desenvolvimento", desc: "HTML, CSS, JavaScript, Python, C#, GitHub" },
-                { icon: "🤝", title: "Soft Skills", desc: "Atendimento, trabalho em equipe, communication clara" }
+                { icon: "🤝", title: "Soft Skills", desc: "Atendimento, trabalho em equipe, comunicação clara" }
               ].map((item, idx) => (
                 <div 
                   key={idx}
