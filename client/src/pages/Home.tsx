@@ -10,7 +10,7 @@ import CertificationsSection from "@/components/CertificationsSection";
  * - Imagem de fundo fixa ocupando a página inteira
  * - Gradiente escuro linear para máxima legibilidade do texto à esquerda
  * - Cards flutuantes com efeito de vidro fosco (backdrop blur)
- * - Apenas o conteúdo textual e os blocos rolam na tela
+ * - Apenas o conteúdo textual e os blocos rolam no ecrã
  */
 
 export default function Home() {
@@ -21,7 +21,7 @@ export default function Home() {
       id: 1,
       title: "💧 InfraPlus",
       subtitle: "Plataforma Web (Full Stack)",
-      description: "Plataforma de utilidade pública para monitoramento e denúncia de problemas hídricos. Projeto acadêmico com foco em impacto social.",
+      description: "Plataforma de utilidade pública para monitoramento e denúncia de problemas hídricos. Projeto académico com foco em impacto social.",
       tech: ["React", "Node.js", "PostgreSQL", "Docker"],
       link: "https://github.com/richaferreira/Projeto_Infraplus_V1",
       status: "Em Desenvolvimento"
@@ -66,7 +66,7 @@ export default function Home() {
     },
     {
       category: "🤝 Soft Skills",
-      items: ["Trabalho Em Equipe", "Resolução de Problemas", "Liderança", "Proatividade", "Comprometimento"]
+      items: ["Trabalho em Equipa", "Resolução de Problemas", "Liderança", "Proatividade", "Comprometimento"]
     }
   ];
 
@@ -76,24 +76,24 @@ export default function Home() {
       company: "Unimed Araruama",
       period: "Set 2024 – Atual",
       location: "Araruama, RJ",
-      description: "Primeiro ponto de contato em ambiente de saúde com foco em atendimento humanizado, admissão de pacientes e gestão de fluxo. Responsável por receber pacientes, agendar consultas e manter a organização do fluxo hospitalar.",
+      description: "Primeiro ponto de contacto em ambiente de saúde com foco em atendimento humanizado, admissão de pacientes e gestão de fluxo. Responsável por receber pacientes, agendar consultas e manter a organização do fluxo hospitalar.",
       achievements: [
         "Atendimento humanizado a mais de 100 pacientes/dia",
         "Gestão eficiente de fluxo de entrada",
-        "Feedback positivo de pacientes e equipe"
+        "Feedback positivo de pacientes e equipa"
       ]
     },
     {
       title: "Técnico em Hardware e Eletricista Residencial",
-      company: "Autônomo / Prestação de Serviços",
+      company: "Autónomo / Prestação de Serviços",
       period: "Atuação Contínua",
       location: "Araruama, RJ",
-      description: "Atendimento a clientes particulares para diagnóstico, montagem e manutenção de computadores e notebooks, além de execução de reparos e novas instalações elétricas residenciais.",
+      description: "Atendimento a clientes particulares para diagnóstico, montagem e manutenção de computadores e portáteis, além de execução de reparações e novas instalações elétricas residenciais.",
       achievements: [
         "Montagem de computadores (Workstations e Gamers) e upgrades",
         "Manutenção preventiva e corretiva (limpeza, troca de pasta térmica, formatação)",
-        "Diagnóstico preciso de falhas em componentes físicos e sistemas operacionais",
-        "Instalação, reparo e manutenção de quadros e circuitos elétricos residenciais seguindo normas de segurança"
+        "Diagnóstico preciso de falhas em componentes físicos e sistemas operativos",
+        "Instalação, reparação e manutenção de quadros e circuitos elétricos residenciais seguindo normas de segurança"
       ]
     },
     {
@@ -109,15 +109,15 @@ export default function Home() {
       ]
     },
     {
-      title: "Ajudante de Caminhão",
+      title: "Ajudante de Camião",
       company: "Vidraçaria Elace",
       period: "Abr 2022 – Jan 2023",
       location: "Araruama, RJ",
-      description: "Suporte logístico e operacional em atividades de transporte e entrega. Trabalho em equipe e responsabilidade com prazos.",
+      description: "Suporte logístico e operacional em atividades de transporte e entrega. Trabalho em equipa e responsabilidade com prazos.",
       achievements: [
         "Suporte logístico em entregas",
         "Operações de carga e descarga",
-        "Trabalho em equipe e responsabilidade com prazos",
+        "Trabalho em equipa e responsabilidade com prazos",
         "Manipulação segura de produtos frágeis"
       ]
     },
@@ -138,11 +138,11 @@ export default function Home() {
       company: "Casa & Vídeo",
       period: "Abr 2017 – Fev 2020",
       location: "Araruama, RJ",
-      description: "Atendimento ao cliente com foco em resolução de problemas e operações logísticas de estoque. Colaboração em equipe para atingimento de metas e organização de processos de vendas.",
+      description: "Atendimento ao cliente com foco em resolução de problemas e operações logísticas de stock. Colaboração em equipa para atingimento de metas e organização de processos de vendas.",
       achievements: [
         "Atendimento ao cliente com excelência",
         "Resolução de problemas e reclamações",
-        "Gestão de estoque e logística",
+        "Gestão de stock e logística",
         "Atingimento de metas de vendas"
       ]
     },
@@ -151,10 +151,10 @@ export default function Home() {
       company: "Papelaria Mattos",
       period: "Abril 2014 – Jan 2017",
       location: "Araruama, RJ",
-      description: "Responsabilidade financeira no fechamento de caixa e conferência rigorosa de inventário. Atendimento direto ao público, desenvolvendo comunicação clara e objetiva.",
+      description: "Responsabilidade financeira no fecho de caixa e conferência rigorosa de inventário. Atendimento direto ao público, desenvolvendo comunicação clara e objetiva.",
       achievements: [
-        "Fechamento de caixa com precisão financeira",
-        "Conferência e controle de inventário",
+        "Fecho de caixa com precisão financeira",
+        "Conferência e controlo de inventário",
         "Atendimento direto ao público",
         "Responsabilidade com valores"
       ]
@@ -168,26 +168,25 @@ export default function Home() {
       {/* BACKGROUND GLOBAL FIXO */}
       {/* ========================================================================= */}
       <div className="fixed inset-0 -z-10 bg-background overflow-hidden">
-        {/* A MÁGICA ESTÁ AQUI: Limitamos a caixa da foto a 60% da tela (lg:w-[60%]).
-          Isso impede o zoom extremo e faz a foto ficar do tamanho perfeito.
-        */}
+        {/* Foto de Fundo Restaurada */}
         <div 
-          className="absolute inset-y-0 right-0 w-full lg:w-[60%] h-full"
+          className="absolute inset-0 w-full h-full"
           style={{
             backgroundImage: 'url(/profile.jpg)',
             backgroundSize: 'cover',
-            backgroundPosition: 'top right', // Cola no teto para não cortar a cabeça
+            /* 100% encosta à direita. 20% controla a altura (pode mudar para 10% se quiser subir mais o rosto) */
+            backgroundPosition: '100% 20%', 
             backgroundRepeat: 'no-repeat',
-            // Máscara que apaga a borda esquerda para mesclar perfeitamente com o fundo preto
-            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 35%)',
-            maskImage: 'linear-gradient(to right, transparent 0%, black 35%)',
+            /* A máscara suaviza o lado esquerdo onde fica o texto */
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, transparent 15%, black 60%)',
+            maskImage: 'linear-gradient(to right, transparent 0%, transparent 15%, black 60%)',
           }}
         />
         
         {/* Gradiente Lateral para proteger o texto à esquerda */}
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 md:via-background/85 to-transparent" />
         
-        {/* Camada escura geral suave para dar contraste nas outras seções durante a rolagem */}
+        {/* Camada escura geral suave para dar contraste nas outras secções durante a rolagem */}
         <div className="absolute inset-0 bg-black/40" />
 
         {/* Toque sutil de azul escuro profundo para dar o clima do design */}
@@ -213,7 +212,7 @@ export default function Home() {
             <a href="#experiencia" className="hover:text-primary transition-colors whitespace-nowrap">Experiência</a>
             <a href="#certificacoes" className="hover:text-primary transition-colors whitespace-nowrap">Certificações</a>
             <a href="#github" className="hover:text-primary transition-colors whitespace-nowrap">GitHub</a>
-            <a href="#contato" className="hover:text-primary transition-colors whitespace-nowrap">Contato</a>
+            <a href="#contato" className="hover:text-primary transition-colors whitespace-nowrap">Contacto</a>
           </div>
         </div>
       </nav>
@@ -230,11 +229,11 @@ export default function Home() {
             </div>
             
             <p className="text-xl text-muted-foreground leading-relaxed max-w-lg mb-6 animate-in fade-in slide-in-from-left duration-700 delay-100">
-              Desenvolvedor em transição de carreira com <strong className="text-foreground">7+ anos de experiência</strong> em infraestrutura, redes FTTH e hardware. Atualmente cursando <strong className="text-foreground">Engenharia de Software</strong> e focado em <strong className="text-foreground">Python, JavaScript e C#</strong>.
+              Desenvolvedor em transição de carreira com <strong className="text-foreground">7+ anos de experiência</strong> em infraestrutura, redes FTTH e hardware. Atualmente a frequentar <strong className="text-foreground">Engenharia de Software</strong> e focado em <strong className="text-foreground">Python, JavaScript e C#</strong>.
             </p>
 
             <p className="text-lg text-muted-foreground leading-relaxed max-w-lg mb-8 animate-in fade-in slide-in-from-left duration-700 delay-200">
-              Combino experiência técnica sólida com habilidades interpessoais desenvolvidas em ambientes dinâmicos. Busco minha primeira oportunidade de estágio para integrar resolução de problemas com desenvolvimento de software.
+              Combino experiência técnica sólida com habilidades interpessoais desenvolvidas em ambientes dinâmicos. Busco a minha primeira oportunidade de estágio para integrar resolução de problemas com desenvolvimento de software.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 animate-in fade-in slide-in-from-left duration-700 delay-300">
@@ -242,7 +241,7 @@ export default function Home() {
                 asChild 
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-base"
               >
-                <a href="#contato">Entrar em Contato</a>
+                <a href="#contato">Entrar em Contacto</a>
               </Button>
               <Button 
                 asChild 
@@ -292,7 +291,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12">
             <div className="space-y-6">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Sou um profissional apaixonado por <strong className="text-foreground">tecnologia e inovação</strong>, atualmente cursando <strong className="text-foreground">Engenharia de Software</strong> na Universidade de Vassouras. Minha trajetória profissional combina experiência técnica sólida com habilidades interpessoais desenvolvidas em ambientes dinâmicos.
+                Sou um profissional apaixonado por <strong className="text-foreground">tecnologia e inovação</strong>, atualmente a frequentar <strong className="text-foreground">Engenharia de Software</strong> na Universidade de Vassouras. A minha trajetória profissional combina experiência técnica sólida com habilidades interpessoais desenvolvidas em ambientes dinâmicos.
               </p>
               
               <p className="text-lg text-muted-foreground leading-relaxed">
@@ -305,7 +304,7 @@ export default function Home() {
                 { icon: "🌐", title: "Infraestrutura & Redes", desc: "TCP/IP, FTTH, fibra óptica, configuração de ativos" },
                 { icon: "💻", title: "Hardware & Sistemas", desc: "Montagem, manutenção, diagnóstico de componentes" },
                 { icon: "⚙️", title: "Desenvolvimento", desc: "HTML, CSS, JavaScript, Python, C#, GitHub" },
-                { icon: "🤝", title: "Soft Skills", desc: "Atendimento, trabalho em equipe, comunicação clara" }
+                { icon: "🤝", title: "Soft Skills", desc: "Atendimento, trabalho em equipa, comunicação clara" }
               ].map((item, idx) => (
                 <div 
                   key={idx}
