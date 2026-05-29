@@ -30,7 +30,7 @@ export default function Home() {
       id: 2,
       title: "💻 Portfólio Pessoal",
       subtitle: "HTML, CSS & GitHub Pages",
-      description: "Site profissional para apresentar trajetória, repositórios e habilidades práticas in tecnologia.",
+      description: "Site profissional para apresentar trajetória, repositórios e habilidades práticas em tecnologia.",
       tech: ["HTML", "CSS", "JavaScript"],
       link: "https://github.com/richaferreira/richaferreira.github.io",
       status: "Concluído"
@@ -165,17 +165,20 @@ export default function Home() {
     <div className="min-h-screen text-foreground relative">
       
       {/* ========================================================================= */}
-      {/* NOVO BACKGROUND GLOBAL FIXO (A FOTO E OS GRADIENTES FIXOS NA TELA TODA) */}
+      {/* BACKGROUND GLOBAL FIXO */}
       {/* ========================================================================= */}
       <div className="fixed inset-0 -z-10 bg-background overflow-hidden">
-        {/* A Foto de Perfil Ocupando 100% da altura e largura proporcional */}
+        {/* Foto com máscara, travada no Topo e na Direita */}
         <div 
           className="absolute inset-0 w-full h-full"
           style={{
             backgroundImage: 'url(/profile.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center right',
+            backgroundSize: 'auto 100%',   // Trava na altura exata da tela (não dá zoom lateral)
+            backgroundPosition: 'top right', // Cola no teto e na direita (não corta a cabeça)
             backgroundRepeat: 'no-repeat',
+            // Máscara para fazer a borda esquerda desaparecer suavemente
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 40%)',
+            maskImage: 'linear-gradient(to right, transparent 0%, black 40%)',
           }}
         />
         
@@ -213,7 +216,7 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section (Fundo removido daqui pois agora reflete o Fundo Fixo da página) */}
+      {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="container mx-auto px-4 relative z-10 py-20">
           <div className="max-w-2xl">
@@ -300,7 +303,7 @@ export default function Home() {
                 { icon: "🌐", title: "Infraestrutura & Redes", desc: "TCP/IP, FTTH, fibra óptica, configuração de ativos" },
                 { icon: "💻", title: "Hardware & Sistemas", desc: "Montagem, manutenção, diagnóstico de componentes" },
                 { icon: "⚙️", title: "Desenvolvimento", desc: "HTML, CSS, JavaScript, Python, C#, GitHub" },
-                { icon: "🤝", title: "Soft Skills", desc: "Atendimento, trabalho em equipe, communication clara" }
+                { icon: "🤝", title: "Soft Skills", desc: "Atendimento, trabalho em equipe, comunicação clara" }
               ].map((item, idx) => (
                 <div 
                   key={idx}
