@@ -193,25 +193,28 @@ export default function Home() {
 
       {/* Hero Section with Background Image */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background Container com Efeito Fade */}
-        <div className="absolute inset-0 z-0">
-          {/* Imagem de Fundo Ajustada para Telas Largas */}
+        {/* Background Container */}
+        <div className="absolute inset-0 z-0 bg-background">
+          
+          {/* Imagem restrita ao lado direito com máscara de transparência na borda esquerda */}
           <div 
-            className="absolute inset-0 w-full h-full"
+            className="absolute inset-y-0 right-0 w-full lg:w-[70%] h-full"
             style={{
               backgroundImage: 'url(/profile.jpg)',
-              // 'auto 100%' trava a altura em 100% da tela e impede o zoom horizontal
-              backgroundSize: 'auto 100%', 
-              backgroundPosition: 'right bottom', // Encosta na direita e na base
+              backgroundSize: 'cover',
+              backgroundPosition: 'center right',
               backgroundRepeat: 'no-repeat',
+              // Essa máscara faz a mágica: apaga 30% da borda esquerda da foto suavemente
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 30%)',
+              maskImage: 'linear-gradient(to right, transparent 0%, black 30%)',
             }}
           />
           
-          {/* Gradiente principal (Esquerda para Direita) para legibilidade do texto */}
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 md:via-background/70 to-transparent" />
+          {/* Gradiente extra para manter o texto 100% legível por cima de tudo */}
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent lg:via-background/20 pointer-events-none" />
           
-          {/* Gradiente de baixo para cima para suavizar a transição com a próxima seção */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+          {/* Transição suave para a parte de baixo (próxima seção) */}
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10 py-20">
