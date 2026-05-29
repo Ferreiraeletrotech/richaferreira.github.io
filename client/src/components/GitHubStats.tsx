@@ -111,7 +111,7 @@ export default function GitHubStats({ username }: GitHubStatsProps) {
           <div className="flex flex-col items-center text-center group">
             <div className="w-32 h-32 mb-3 hover:scale-110 transition-transform duration-300 cursor-pointer">
               <img 
-                src="/achievement-ftth-500.png" 
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663524241517/L2tXxi92q52g7SEHfj8y9z/achievement-ftth-500-4n7GnoaD9rEQ9k45SUuTfy.webp" 
                 alt="500+ FTTH Installations Achievement"
                 className="w-full h-full object-contain drop-shadow-lg"
               />
@@ -124,7 +124,7 @@ export default function GitHubStats({ username }: GitHubStatsProps) {
           <div className="flex flex-col items-center text-center group">
             <div className="w-32 h-32 mb-3 hover:scale-110 transition-transform duration-300 cursor-pointer">
               <img 
-                src="/achievement-hardware.png" 
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663524241517/L2tXxi92q52g7SEHfj8y9z/achievement-hardware-FSubLZRNFQiY59BxaXA8gq.webp" 
                 alt="Hardware Expert Achievement"
                 className="w-full h-full object-contain drop-shadow-lg"
               />
@@ -137,7 +137,7 @@ export default function GitHubStats({ username }: GitHubStatsProps) {
           <div className="flex flex-col items-center text-center group">
             <div className="w-32 h-32 mb-3 hover:scale-110 transition-transform duration-300 cursor-pointer">
               <img 
-                src="/achievement-fullstack.png" 
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663524241517/L2tXxi92q52g7SEHfj8y9z/achievement-fullstack-X9fLoUaagEvM2jHB8FkbdS.webp" 
                 alt="Full Stack Developer Achievement"
                 className="w-full h-full object-contain drop-shadow-lg"
               />
@@ -150,7 +150,7 @@ export default function GitHubStats({ username }: GitHubStatsProps) {
           <div className="flex flex-col items-center text-center group">
             <div className="w-32 h-32 mb-3 hover:scale-110 transition-transform duration-300 cursor-pointer">
               <img 
-                src="/achievement-uptime.png" 
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663524241517/L2tXxi92q52g7SEHfj8y9z/achievement-uptime-ca2H32MBA4sMzteh3s2Bga.webp" 
                 alt="99.5% SLA Uptime Achievement"
                 className="w-full h-full object-contain drop-shadow-lg"
               />

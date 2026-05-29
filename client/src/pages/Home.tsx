@@ -197,7 +197,7 @@ export default function Home() {
         <div 
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: 'url(/profile.jpg)',
+            backgroundImage: 'url(/manus-storage/IMG_1771_1f16d419.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center right',
             backgroundAttachment: 'fixed'
@@ -247,7 +247,7 @@ export default function Home() {
                 variant="outline"
                 className="border-secondary/50 hover:border-secondary hover:bg-secondary/10 text-secondary font-semibold px-8 py-6 text-base inline-flex items-center gap-2"
               >
-                <a href="/curriculo.pdf" download="Curriculo_Richardson_Ferreira.pdf">
+                <a href="/manus-storage/Curriculo_OFC_atualizado(1)_837c216c.pdf" download>
                   <Download className="w-4 h-4" />
                   Download Currículo
                 </a>
