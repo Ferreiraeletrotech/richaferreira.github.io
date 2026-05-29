@@ -192,22 +192,25 @@ export default function Home() {
       </nav>
 
       {/* Hero Section with Background Image */}
-<section className="relative min-h-screen flex items-center overflow-hidden">
-  {/* Background Image with Overlay */}
-  <div 
-    className="absolute inset-0 z-0"
-    style={{
-      backgroundImage: 'url(/profile.jpg)',
-      backgroundSize: 'contain',       // <-- Mudou de cover para contain
-      backgroundPosition: 'center right',
-      backgroundRepeat: 'no-repeat',   // <-- Evita que a foto se repita no espaço vazio
-      backgroundAttachment: 'fixed'
-    }}
-        >
-          {/* Dark overlay - gradient from left to right */}
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
-          {/* Additional gradient overlay for depth */}
-          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background/40" />
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Background Container com Efeito Fade */}
+        <div className="absolute inset-0 z-0">
+          {/* Imagem de Fundo (Cover + Alinhada à direita) */}
+          <div 
+            className="absolute inset-0 w-full h-full"
+            style={{
+              backgroundImage: 'url(/profile.jpg)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'top right',
+              backgroundRepeat: 'no-repeat',
+            }}
+          />
+          
+          {/* Gradiente principal (Esquerda para Direita) para legibilidade do texto */}
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 md:via-background/70 to-transparent" />
+          
+          {/* Gradiente de baixo para cima para suavizar a transição com a próxima seção */}
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10 py-20">
