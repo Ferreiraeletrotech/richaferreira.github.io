@@ -1,29 +1,59 @@
-name: Deploy
+name: Deploy to GitHub Pages
 
 on:
+  # Executa esse script toda vez que houver um push na branch main
   push:
-    branches:
-      - main
+    branches: ["main"]
+  # Permite rodar o script manualmente pela aba Actions do GitHub
+  workflow_dispatch:
+
+# Define as permissões necessárias para ler o código e publicar no Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Evita que dois builds rodem ao mesmo tempo e se cancelem
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: Baixar o código do repositório
+        uses: actions/checkout@v4
+
+      - name: Instalar o pnpm
+        uses: pnpm/action-setup@v3
         with:
-          node-version: '18'
-      
-      - name: Install dependencies
-        run: npm install
-      
-      - name: Build
-        run: npm run build
-      
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+          version: 10
+
+      - name: Configurar o Node.js
+        uses: actions/setup-node@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Instalar as dependências do projeto
+        run: pnpm install
+
+      - name: Fazer o build (compilar o site)
+        run: pnpm build
+
+      - name: Configurar o GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Fazer o upload dos arquivos do site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Informa ao GitHub que a pasta correta gerada pelo seu template é a dist/public
+          path: './dist/public'
+
+      - name: Publicar no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
