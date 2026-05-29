@@ -18,7 +18,7 @@ export default function GitHubStats({ username }: GitHubStatsProps) {
     return (
       <div className="p-6 rounded-xl bg-card/40 border border-border/20 backdrop-blur-sm">
         <div className="text-center text-muted-foreground">
-          <開 Github className="w-8 h-8 mx-auto mb-2 opacity-50" />
+          <Github className="w-8 h-8 mx-auto mb-2 opacity-50" />
           <p>Erro ao carregar dados do GitHub</p>
         </div>
       </div>
