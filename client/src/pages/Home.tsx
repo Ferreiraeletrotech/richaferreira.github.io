@@ -1,3 +1,10 @@
+Essa ideia é fantástica! Transformar a foto no fundo de toda a página fixa, fazendo com que o conteúdo do site (textos, botões e os cards com efeito de vidro fosco) flutue e deslize por cima dela ao rolar a página, cria um efeito de **Glassmorphism Premium** digno de sites de altíssimo nível.
+
+Para fazer isso dar certo e manter o texto perfeitamente legível durante toda a rolagem, a foto foi movida para uma estrutura fixa global e foi aplicada uma camada de gradiente escuro que protege o lado esquerdo da tela (onde ficam os blocos de texto).
+
+Como combinado, aqui está o código **completo** do seu `Home.tsx` atualizado e pronto para rodar:
+
+```tsx
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Github, Linkedin, Mail, MessageCircle, ExternalLink, Code2, Briefcase, BookOpen, Zap, Download } from "lucide-react";
@@ -6,12 +13,11 @@ import GitHubStats from "@/components/GitHubStats";
 import CertificationsSection from "@/components/CertificationsSection";
 
 /**
- * Design Philosophy: Glassmorphism Elegante
- * - Dark gradient background (black to deep blue)
- * - Frosted glass cards with backdrop blur
- * - Cyan (#00d9ff) and purple (#a78bfa) accents
- * - Smooth animations and hover effects
- * - Professional yet creative aesthetic
+ * Design Philosophy: Glassmorphism Elegante (Full Fixed Background)
+ * - Imagem de fundo fixa ocupando a página inteira
+ * - Gradiente escuro linear para máxima legibilidade do texto à esquerda
+ * - Cards flutuantes com efeito de vidro fosco (backdrop blur)
+ * - Apenas o conteúdo textual e os blocos rolam na tela
  */
 
 export default function Home() {
@@ -31,7 +37,7 @@ export default function Home() {
       id: 2,
       title: "💻 Portfólio Pessoal",
       subtitle: "HTML, CSS & GitHub Pages",
-      description: "Site profissional para apresentar trajetória, repositórios e habilidades práticas em tecnologia.",
+      description: "Site profissional para apresentar trajetória, repositórios e habilidades práticas in tecnologia.",
       tech: ["HTML", "CSS", "JavaScript"],
       link: "https://github.com/richaferreira/richaferreira.github.io",
       status: "Concluído"
@@ -67,7 +73,7 @@ export default function Home() {
     },
     {
       category: "🤝 Soft Skills",
-      items: ["Trabalho em Equipe", "Resolução de Problemas", "Liderança", "Proatividade", "Comprometimento"]
+      items: ["Trabalho Em Equipe", "Resolução de Problemas", "Liderança", "Proatividade", "Comprometimento"]
     }
   ];
 
@@ -163,18 +169,41 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      {/* Background gradient */}
-      <div 
-        className="fixed inset-0 -z-10"
-        style={{
-          background: "linear-gradient(135deg, #0a0a0a 0%, #1a1f3a 50%, #0a0a0a 100%)",
-          backgroundAttachment: "fixed"
-        }}
-      />
+    <div className="min-h-screen text-foreground relative">
+      
+      {/* ========================================================================= */}
+      {/* NOVO BACKGROUND GLOBAL FIXO (A FOTO E OS GRADIENTES FIXOS NA TELA TODA) */}
+      {/* ========================================================================= */}
+      <div className="fixed inset-0 -z-10 bg-background overflow-hidden">
+        {/* A Foto de Perfil Ocupando 100% da altura e largura proporcional */}
+        <div 
+          className="absolute inset-0 w-full h-full"
+          style={{
+            backgroundImage: 'url(/profile.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center right',
+            backgroundRepeat: 'no-repeat',
+          }}
+        />
+        
+        {/* Gradiente Lateral para proteger o texto à esquerda (Preto sólido -> Transparente) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 md:via-background/85 to-transparent" />
+        
+        {/* Camada escura geral suave para dar contraste nas outras seções durante a rolagem */}
+        <div className="absolute inset-0 bg-black/40" />
+
+        {/* Toque sutil de azul escuro profundo para dar o clima do design */}
+        <div 
+          className="absolute inset-0 opacity-40 mix-blend-color-add"
+          style={{
+            background: "linear-gradient(135deg, #020410 0%, #0c102b 100%)"
+          }}
+        />
+      </div>
+      {/* ========================================================================= */}
 
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 border-b border-border/20 bg-background/30 backdrop-blur-xl">
+      <nav className="sticky top-0 z-50 border-b border-border/10 bg-background/20 backdrop-blur-xl">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             RF
@@ -191,32 +220,8 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section with Background Image */}
+      {/* Hero Section (Fundo removido daqui pois agora reflete o Fundo Fixo da página) */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background Container */}
-        <div className="absolute inset-0 z-0 bg-background">
-          
-          {/* Imagem restrita ao lado direito com máscara de transparência na borda esquerda */}
-          <div 
-            className="absolute inset-y-0 right-0 w-full lg:w-[70%] h-full"
-            style={{
-              backgroundImage: 'url(/profile.jpg)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center right',
-              backgroundRepeat: 'no-repeat',
-              // Essa máscara faz a mágica: apaga 30% da borda esquerda da foto suavemente
-              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 30%)',
-              maskImage: 'linear-gradient(to right, transparent 0%, black 30%)',
-            }}
-          />
-          
-          {/* Gradiente extra para manter o texto 100% legível por cima de tudo */}
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent lg:via-background/20 pointer-events-none" />
-          
-          {/* Transição suave para a parte de baixo (próxima seção) */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none" />
-        </div>
-
         <div className="container mx-auto px-4 relative z-10 py-20">
           <div className="max-w-2xl">
             <div className="space-y-2 mb-6 animate-in fade-in slide-in-from-left duration-700">
@@ -282,7 +287,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="sobre" className="py-20 border-t border-border/20">
+      <section id="sobre" className="py-20 border-t border-border/10">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-12">Sobre Mim</h2>
           
@@ -302,7 +307,7 @@ export default function Home() {
                 { icon: "🌐", title: "Infraestrutura & Redes", desc: "TCP/IP, FTTH, fibra óptica, configuração de ativos" },
                 { icon: "💻", title: "Hardware & Sistemas", desc: "Montagem, manutenção, diagnóstico de componentes" },
                 { icon: "⚙️", title: "Desenvolvimento", desc: "HTML, CSS, JavaScript, Python, C#, GitHub" },
-                { icon: "🤝", title: "Soft Skills", desc: "Atendimento, trabalho em equipe, comunicação clara" }
+                { icon: "🤝", title: "Soft Skills", desc: "Atendimento, trabalho em equipe, communication clara" }
               ].map((item, idx) => (
                 <div 
                   key={idx}
@@ -319,7 +324,7 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section id="projetos" className="py-20 border-t border-border/20">
+      <section id="projetos" className="py-20 border-t border-border/10">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-12">Projetos em Destaque</h2>
           
@@ -372,7 +377,7 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="habilidades" className="py-20 border-t border-border/20">
+      <section id="habilidades" className="py-20 border-t border-border/10">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-12">Habilidades Técnicas</h2>
           
@@ -400,7 +405,7 @@ export default function Home() {
       </section>
 
       {/* Experience Section */}
-      <section id="experiencia" className="py-20 border-t border-border/20">
+      <section id="experiencia" className="py-20 border-t border-border/10">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-12">Experiência Profissional</h2>
           
@@ -439,7 +444,7 @@ export default function Home() {
       </section>
 
       {/* Certifications Section */}
-      <section id="certificacoes" className="py-20 border-t border-border/20">
+      <section id="certificacoes" className="py-20 border-t border-border/10">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-12">Certificações & Credenciais</h2>
           <CertificationsSection />
@@ -447,7 +452,7 @@ export default function Home() {
       </section>
 
       {/* GitHub Stats Section */}
-      <section id="github" className="py-20 border-t border-border/20">
+      <section id="github" className="py-20 border-t border-border/10">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-12">Atividade no GitHub</h2>
           <GitHubStats username="richaferreira" />
@@ -455,7 +460,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contato" className="py-20 border-t border-border/20">
+      <section id="contato" className="py-20 border-t border-border/10">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">Vamos Trabalhar Juntos?</h2>
           <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
@@ -507,7 +512,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border/20 bg-background/50 backdrop-blur-sm py-8">
+      <footer className="border-t border-border/10 bg-background/40 backdrop-blur-sm py-8">
         <div className="container mx-auto px-4 text-center text-muted-foreground text-sm">
           <p>&copy; 2026 Richardson Ferreira. Desenvolvido com dedicação, inovação e paixão por tecnologia.</p>
         </div>
@@ -515,3 +520,5 @@ export default function Home() {
     </div>
   );
 }
+
+```
