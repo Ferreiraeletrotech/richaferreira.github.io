@@ -195,13 +195,13 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background Container com Efeito Fade */}
         <div className="absolute inset-0 z-0">
-          {/* Imagem de Fundo (Cover + Alinhada à direita) */}
+          {/* Imagem de Fundo (Cover + Alinhada ao centro-direita) */}
           <div 
             className="absolute inset-0 w-full h-full"
             style={{
               backgroundImage: 'url(/profile.jpg)',
               backgroundSize: 'cover',
-              backgroundPosition: 'top right',
+              backgroundPosition: 'center right', // <-- Alterado aqui para centralizar o rosto
               backgroundRepeat: 'no-repeat',
             }}
           />
