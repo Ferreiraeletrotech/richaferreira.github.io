@@ -470,7 +470,7 @@ export default function Home() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-4">Ecossistema GitHub</h2>
             <p className="text-muted-foreground mb-12">Monitoramento em tempo real das minhas contribuições e atividades.</p>
-            <GitHubStats />
+            <GitHubStats username="richaferreira" />
           </div>
         </div>
       </section>
